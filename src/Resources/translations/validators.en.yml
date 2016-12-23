@@ -1,0 +1,8 @@
+babdev_sylius_supplier:
+    supplier:
+        code:
+            not_blank: Please enter a supplier code.
+            regex: Supplier code can only be comprised of letters, numbers, dashes and underscores.
+            unique: Supplier code has to be unique.
+        name:
+            not_blank: Please enter supplier name.

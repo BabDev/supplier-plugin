@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+ This file is part of the BabDevSyliusSupplierBundle package.
+
+ (c) Michael Babker
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="babdev_sylius_supplier.admin.sylius_menu_builder.supplier" class="BabDev\SyliusSupplierBundle\Menu\SyliusMenuBuilder">
+            <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="configureSupplierMenu" />
+        </service>
+
+        <service id="babdev_sylius_supplier.fixture.example_factory.supplier" class="BabDev\SyliusSupplierBundle\Fixture\Factory\SupplierExampleFactory">
+            <argument type="service" id="babdev_sylius_supplier.factory.supplier" />
+            <argument type="service" id="babdev_sylius_supplier.repository.supplier" />
+        </service>
+
+        <service id="babdev_sylius_supplier.fixture.supplier" class="BabDev\SyliusSupplierBundle\Fixture\SupplierFixture">
+            <argument type="service" id="babdev_sylius_supplier.manager.supplier" />
+            <argument type="service" id="babdev_sylius_supplier.fixture.example_factory.supplier" />
+            <tag name="sylius_fixtures.fixture" />
+        </service>
+
+        <service id="babdev_sylius_supplier.form.type.channel" class="BabDev\SyliusSupplierBundle\Form\Type\SupplierType">
+            <argument>%babdev_sylius_supplier.model.supplier.class%</argument>
+            <argument type="collection"><argument>sylius</argument></argument>
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>

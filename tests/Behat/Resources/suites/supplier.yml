@@ -1,0 +1,17 @@
+default:
+    suites:
+        ui_supplier:
+            contexts_services:
+                - sylius.behat.context.hook.doctrine_orm
+
+                - sylius.behat.context.transform.shared_storage
+
+                - babdev_sylius_supplier.context.setup.supplier
+                - sylius.behat.context.setup.admin_security
+                - sylius.behat.context.setup.channel
+
+                - babdev_sylius_supplier.context.ui.admin.managing_suppliers
+                - sylius.behat.context.ui.admin.notification
+
+            filters:
+                tags: "@managing_suppliers && @ui"

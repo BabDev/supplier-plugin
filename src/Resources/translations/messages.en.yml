@@ -1,0 +1,9 @@
+babdev_sylius_supplier:
+    menu:
+        admin:
+            suppliers: Suppliers
+
+    ui:
+        configure_your_store_suppliers: "Configure your store's suppliers"
+        edit_supplier: Edit supplier
+        suppliers: Suppliers

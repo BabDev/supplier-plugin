@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@BabDevSyliusSupplierBundle/Resources/config/app/grids/supplier.yml" }

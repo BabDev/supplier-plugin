@@ -1,0 +1,13 @@
+/vendor
+
+/composer.phar
+/composer.lock
+
+/tests/var/cache
+/tests/var/logs
+
+/phpunit.xml
+/phpspec.yml
+
+/etc/build/*
+!/etc/build/.gitkeep
