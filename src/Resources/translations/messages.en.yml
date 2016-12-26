@@ -6,4 +6,5 @@ babdev_sylius_supplier:
     ui:
         configure_your_store_suppliers: "Configure your store's suppliers"
         edit_supplier: Edit supplier
+        new_supplier: New supplier
         suppliers: Suppliers
