@@ -6,3 +6,7 @@ babdev_sylius_supplier:
             unique: Supplier code has to be unique.
         name:
             not_blank: Please enter supplier name.
+        contact_email:
+            invalid: This email is invalid.
+            max: Email must not be longer than {{ limit }} characters.
+            min: Email must be at least {{ limit }} characters long.

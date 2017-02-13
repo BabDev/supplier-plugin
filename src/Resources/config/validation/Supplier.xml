@@ -39,5 +39,22 @@
                 <option name="groups">sylius</option>
             </constraint>
         </property>
+        <property name="contactEmail">
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">babdev_sylius_supplier.supplier.contact_email.min</option>
+                <option name="max">254</option>
+                <option name="maxMessage">babdev_sylius_supplier.supplier.contact_email.max</option>
+                <option name="groups">
+                    <value>sylius</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">babdev_sylius_supplier.supplier.contact_email.invalid</option>
+                <option name="groups">
+                    <value>sylius</value>
+                </option>
+            </constraint>
+        </property>
     </class>
 </constraint-mapping>

@@ -95,6 +95,14 @@ final class ManagingSuppliersContext implements Context
     }
 
     /**
+     * @When I set its contact email to :contactEmail
+     */
+    public function iSetItsContactEmailAs($contactEmail)
+    {
+        $this->createPage->setContactEmail($contactEmail);
+    }
+
+    /**
      * @When I add it
      * @When I try to add it
      */

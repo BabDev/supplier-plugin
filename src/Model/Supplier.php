@@ -41,6 +41,11 @@ class Supplier implements SupplierInterface
      */
     protected $description;
 
+    /**
+     * @var string
+     */
+    protected $contactEmail;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -108,5 +113,21 @@ class Supplier implements SupplierInterface
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContactEmail()
+    {
+        return $this->contactEmail;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setContactEmail($contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
     }
 }

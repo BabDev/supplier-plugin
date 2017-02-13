@@ -43,6 +43,14 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
     }
 
     /**
+     * @param string $contactEmail
+     */
+    public function setContactEmail($contactEmail)
+    {
+        $this->getSession()->getPage()->fillField('Contact email', $contactEmail);
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getDefinedElements()
@@ -50,9 +58,10 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
         return array_merge(
             parent::getDefinedElements(),
             [
-                'code'        => '#babdev_sylius_supplier_code',
-                'name'        => '#babdev_sylius_supplier_name',
-                'description' => '#babdev_sylius_supplier_description',
+                'code'          => '#babdev_sylius_supplier_code',
+                'name'          => '#babdev_sylius_supplier_name',
+                'description'   => '#babdev_sylius_supplier_description',
+                'contact_email' => '#babdev_sylius_supplier_contact_email',
             ]
         );
     }

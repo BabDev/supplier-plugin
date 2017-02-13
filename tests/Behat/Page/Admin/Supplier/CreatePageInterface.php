@@ -32,4 +32,9 @@ interface CreatePageInterface extends BaseCreatePageInterface
      * @param string $description
      */
     public function setDescription($description);
+
+    /**
+     * @param string $contactEmail
+     */
+    public function setContactEmail($contactEmail);
 }

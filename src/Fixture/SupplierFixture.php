@@ -36,6 +36,7 @@ final class SupplierFixture extends AbstractResourceFixture
             ->children()
                 ->scalarNode('name')->end()
                 ->scalarNode('description')->end()
+                ->scalarNode('contact_email')->end()
         ;
     }
 }

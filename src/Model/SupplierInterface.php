@@ -44,4 +44,14 @@ interface SupplierInterface extends
      * @param string $description
      */
     public function setDescription($description);
+
+    /**
+     * @return string
+     */
+    public function getContactEmail();
+
+    /**
+     * @param string $contactEmail
+     */
+    public function setContactEmail($contactEmail);
 }

@@ -1,4 +1,8 @@
 babdev_sylius_supplier:
+    form:
+        supplier:
+            contact_email: Contact email
+
     menu:
         admin:
             suppliers: Suppliers

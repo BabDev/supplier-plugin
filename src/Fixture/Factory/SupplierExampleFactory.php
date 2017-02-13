@@ -11,7 +11,7 @@
 
 namespace BabDev\SyliusSupplierBundle\Fixture\Factory;
 
-use BabDev\SyliusSupplierBundle\Model\Supplier;
+use BabDev\SyliusSupplierBundle\Model\SupplierInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -64,6 +64,8 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
                     return $this->faker->paragraphs(3, true);
                 })
                 ->setAllowedTypes('description', 'string')
+
+                ->setDefault('contact_email', null)
         ;
     }
 
@@ -74,11 +76,12 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
     {
         $options = $this->optionsResolver->resolve($options);
 
-        /** @var Supplier $supplier */
+        /** @var SupplierInterface $supplier */
         $supplier = $this->supplierFactory->createNew();
         $supplier->setName($options['name']);
         $supplier->setCode($options['code']);
         $supplier->setDescription($options['description']);
+        $supplier->setContactEmail($options['contact_email']);
 
         return $supplier;
     }
