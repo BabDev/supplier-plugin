@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ This file is part of the BabDevSyliusSupplierBundle package.
+
+ (c) Michael Babker
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+
+-->
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <mapped-superclass name="BabDev\SyliusSupplierBundle\Model\SupplierPricing" table="babdev_sylius_supplier_pricing">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="price" column="price" type="integer"/>
+
+        <one-to-many field="productVariant" target-entity="Sylius\Component\Product\Model\ProductVariantInterface" mapped-by="supplierPricing" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
+        <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierBundle\Model\SupplierInterface">
+            <join-column name="supplier_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
+        </many-to-one>
+    </mapped-superclass>
+
+</doctrine-mapping>
