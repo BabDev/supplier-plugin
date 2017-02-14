@@ -23,11 +23,6 @@
                 <option name="groups">sylius</option>
             </constraint>
         </property>
-        <property name="description">
-            <constraint name="NotBlank">
-                <option name="groups">sylius</option>
-            </constraint>
-        </property>
         <property name="code">
             <constraint name="NotBlank">
                 <option name="message">babdev_sylius_supplier.supplier.code.not_blank</option>
