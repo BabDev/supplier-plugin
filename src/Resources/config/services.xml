@@ -33,5 +33,10 @@
             <argument type="collection"><argument>sylius</argument></argument>
             <tag name="form.type" />
         </service>
+
+        <service id="babdev_sylius_supplier.form.type.supplier_choice" class="BabDev\SyliusSupplierBundle\Form\Type\SupplierChoiceType">
+            <argument type="service" id="babdev_sylius_supplier.repository.supplier" />
+            <tag name="form.type" />
+        </service>
     </services>
 </container>
