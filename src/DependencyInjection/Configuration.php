@@ -14,6 +14,8 @@ namespace BabDev\SyliusSupplierBundle\DependencyInjection;
 use BabDev\SyliusSupplierBundle\Form\Type\SupplierType;
 use BabDev\SyliusSupplierBundle\Model\Supplier;
 use BabDev\SyliusSupplierBundle\Model\SupplierInterface;
+use BabDev\SyliusSupplierBundle\Model\SupplierPricing;
+use BabDev\SyliusSupplierBundle\Model\SupplierPricingInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
@@ -68,6 +70,22 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('repository')->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                         ->scalarNode('form')->defaultValue(SupplierType::class)->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('supplier_pricing')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->variableNode('options')->end()
+                                ->arrayNode('classes')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->scalarNode('model')->defaultValue(SupplierPricing::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('interface')->defaultValue(SupplierPricingInterface::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->cannotBeEmpty()->end()
+                                        ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
                                 ->end()
                             ->end()
