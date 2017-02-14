@@ -19,6 +19,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * @author Michael Babker <michael.babker@gmail.com>
+ */
 final class SupplierChoiceType extends AbstractType
 {
     /**
