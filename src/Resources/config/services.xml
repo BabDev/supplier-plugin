@@ -28,7 +28,7 @@
             <tag name="sylius_fixtures.fixture" />
         </service>
 
-        <service id="babdev_sylius_supplier.form.type.channel" class="BabDev\SyliusSupplierBundle\Form\Type\SupplierType">
+        <service id="babdev_sylius_supplier.form.type.supplier" class="BabDev\SyliusSupplierBundle\Form\Type\SupplierType">
             <argument>%babdev_sylius_supplier.model.supplier.class%</argument>
             <argument type="collection"><argument>sylius</argument></argument>
             <tag name="form.type" />
