@@ -1,4 +1,4 @@
-# Supplier Plugin by BabDev for Sylius [![License](https://img.shields.io/packagist/l/babdev/supplier-plugin.svg)](https://packagist.org/packages/babdev/supplier-plugin) [![Version](https://img.shields.io/packagist/v/babdev/supplier-plugin.svg)](https://packagist.org/packages/babdev/supplier-plugin) [![Build Status](https://travis-ci.org/BabDev/SupplierPlugin.svg?branch=master)](https://travis-ci.org/BabDev/SupplierPlugin)
+# Supplier Plugin by BabDev for Sylius [![License](https://img.shields.io/packagist/l/babdev/supplier-plugin.svg)](https://packagist.org/packages/babdev/supplier-plugin) [![Version](https://img.shields.io/packagist/v/babdev/supplier-plugin.svg)](https://packagist.org/packages/babdev/supplier-plugin) [![Build Status](https://travis-ci.org/BabDev/supplier-plugin.svg?branch=master)](https://travis-ci.org/BabDev/supplier-plugin)
 
 Simple Supplier integration for Sylius.
 
@@ -10,7 +10,7 @@ Simple Supplier integration for Sylius.
     $ composer require babdev/supplier-plugin
     ```
     
-2. Add this bundle in `AppKernel.php` (**before `SyliusGridBundle`**):
+2. Add this bundle in `AppKernel.php`:
 
     ```php
     new \BabDev\SupplierPlugin\BabDevSupplierPlugin(),
@@ -26,7 +26,7 @@ Simple Supplier integration for Sylius.
 4. Import routing files in `app/config/routing.yml`:
 
     ```yaml
-    babdev_sylius_supplier_admin:
+    babdev_supplier_admin:
         resource: "@BabDevSupplierPlugin/Resources/config/app/admin_routing.yml"
         prefix: /admin # root path of SyliusAdmin
     ```
