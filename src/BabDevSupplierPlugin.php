@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,25 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle;
+namespace BabDev\SupplierPlugin;
 
+use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
- * Sylius supplier management bundle.
+ * Sylius supplier management plugin.
  *
  * @author Michael Babker <michael.babker@gmail.com>
  */
-class BabDevSyliusSupplierBundle extends AbstractResourceBundle
+class BabDevSupplierPlugin extends AbstractResourceBundle
 {
+    use SyliusPluginTrait;
+
     /**
      * {@inheritdoc}
      */
     protected function getBundlePrefix()
     {
-        return 'babdev_sylius_supplier';
+        return 'babdev_supplier';
     }
 
     /**
@@ -71,6 +74,6 @@ class BabDevSyliusSupplierBundle extends AbstractResourceBundle
      */
     protected function getModelNamespace()
     {
-        return 'BabDev\SyliusSupplierBundle\Model';
+        return __NAMESPACE__.'\\Model';
     }
 }

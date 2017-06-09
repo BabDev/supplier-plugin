@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Tests\Behat\Page\Admin\Supplier;
+namespace BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\UpdatePage as BaseUpdatePage;
 
@@ -42,7 +42,7 @@ final class UpdatePage extends BaseUpdatePage implements UpdatePageInterface
         return array_merge(
             parent::getDefinedElements(),
             [
-                'description' => '#babdev_sylius_supplier_description',
+                'description' => '#babdev_supplier_supplier_description',
             ]
         );
     }

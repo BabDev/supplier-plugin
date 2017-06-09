@@ -1,4 +1,4 @@
-babdev_sylius_supplier:
+babdev_supplier:
     supplier:
         code:
             not_blank: Please enter a supplier code.

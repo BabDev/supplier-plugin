@@ -1,2 +1,2 @@
 imports:
-    - { resource: "@BabDevSyliusSupplierBundle/Resources/config/app/grids/supplier.yml" }
+    - { resource: "@BabDevSupplierPlugin/Resources/config/app/grids/supplier.yml" }

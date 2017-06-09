@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Menu;
+namespace BabDev\SupplierPlugin\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
@@ -28,8 +28,8 @@ final class SyliusMenuBuilder
         $configurationMenu = $adminMenu->getChild('configuration');
 
         $configurationMenu
-            ->addChild('routes', ['route' => 'babdev_sylius_supplier_admin_supplier_index'])
-            ->setLabel('babdev_sylius_supplier.menu.admin.suppliers')
+            ->addChild('routes', ['route' => 'babdev_supplier_admin_supplier_index'])
+            ->setLabel('babdev_supplier.menu.admin.suppliers')
             ->setLabelAttribute('icon', 'shopping bag')
         ;
     }

@@ -2,7 +2,7 @@
 
 <!--
 
- This file is part of the BabDevSyliusSupplierBundle package.
+ This file is part of the BabDevSupplierPlugin package.
 
  (c) Michael Babker
 
@@ -12,10 +12,10 @@
 -->
 
 <constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
-    <class name="BabDev\SyliusSupplierBundle\Model\Supplier">
+    <class name="BabDev\SupplierPlugin\Model\Supplier">
         <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
             <option name="fields">code</option>
-            <option name="message">babdev_sylius_supplier.supplier.code.unique</option>
+            <option name="message">babdev_supplier.supplier.code.unique</option>
             <option name="groups">sylius</option>
         </constraint>
         <property name="name">
@@ -25,11 +25,11 @@
         </property>
         <property name="code">
             <constraint name="NotBlank">
-                <option name="message">babdev_sylius_supplier.supplier.code.not_blank</option>
+                <option name="message">babdev_supplier.supplier.code.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
             <constraint name="Regex">
-                <option name="message">babdev_sylius_supplier.supplier.code.regex</option>
+                <option name="message">babdev_supplier.supplier.code.regex</option>
                 <option name="pattern">/^[\w-]*$/</option>
                 <option name="groups">sylius</option>
             </constraint>
@@ -37,15 +37,15 @@
         <property name="contactEmail">
             <constraint name="Length">
                 <option name="min">2</option>
-                <option name="minMessage">babdev_sylius_supplier.supplier.contact_email.min</option>
+                <option name="minMessage">babdev_supplier.supplier.contact_email.min</option>
                 <option name="max">254</option>
-                <option name="maxMessage">babdev_sylius_supplier.supplier.contact_email.max</option>
+                <option name="maxMessage">babdev_supplier.supplier.contact_email.max</option>
                 <option name="groups">
                     <value>sylius</value>
                 </option>
             </constraint>
             <constraint name="Email">
-                <option name="message">babdev_sylius_supplier.supplier.contact_email.invalid</option>
+                <option name="message">babdev_supplier.supplier.contact_email.invalid</option>
                 <option name="groups">
                     <value>sylius</value>
                 </option>

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Form\Type;
+namespace BabDev\SupplierPlugin\Form\Type;
 
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
@@ -75,6 +75,6 @@ final class SupplierChoiceType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'babdev_sylius_supplier_choice';
+        return 'babdev_supplier_supplier_choice';
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Tests\Behat\Page\Admin\Supplier;
+namespace BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\UpdatePageInterface as BaseUpdatePageInterface;
 

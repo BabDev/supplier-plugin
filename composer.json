@@ -1,6 +1,6 @@
 {
-    "name": "babdev/sylius-supplier-bundle",
-    "type": "symfony-bundle",
+    "name": "babdev/supplier-plugin",
+    "type": "sylius-plugin",
     "description": "Supplier processing for Sylius.",
     "keywords": ["shop", "ecommerce", "supplier"],
     "license": "MIT",
@@ -12,9 +12,10 @@
         }
     ],
     "require": {
-        "php": "^5.6|^7.0",
+        "php": "^7.1",
 
-        "sylius/sylius": "^1.0@beta"
+        "sylius/sylius": "^1.0@beta",
+        "symfony/symfony": "3.2.*"
     },
     "require-dev": {
         "jackalope/jackalope-doctrine-dbal": "^1.2",
@@ -35,11 +36,11 @@
         "phpunit/phpunit": "^5.6"
     },
     "autoload": {
-        "psr-4": { "BabDev\\SyliusSupplierBundle\\": "src/" }
+        "psr-4": { "BabDev\\SupplierPlugin\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": {
-            "BabDev\\SyliusSupplierBundle\\Tests\\Behat\\": "tests/Behat/"
+            "BabDev\\SupplierPlugin\\Tests\\Behat\\": "tests/Behat/"
         }
     },
     "minimum-stability": "dev",

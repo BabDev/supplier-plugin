@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Tests\Behat\Context\Setup;
+namespace BabDev\SupplierPlugin\Tests\Behat\Context\Setup;
 
-use BabDev\SyliusSupplierBundle\Model\Supplier;
+use BabDev\SupplierPlugin\Model\Supplier;
 use Behat\Behat\Context\Context;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Behat\Service\SharedStorageInterface;

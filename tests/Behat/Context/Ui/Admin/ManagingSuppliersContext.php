@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Tests\Behat\Context\Ui\Admin;
+namespace BabDev\SupplierPlugin\Tests\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
-use BabDev\SyliusSupplierBundle\Model\Supplier;
-use BabDev\SyliusSupplierBundle\Tests\Behat\Page\Admin\Supplier\CreatePageInterface;
-use BabDev\SyliusSupplierBundle\Tests\Behat\Page\Admin\Supplier\UpdatePageInterface;
+use BabDev\SupplierPlugin\Model\Supplier;
+use BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier\CreatePageInterface;
+use BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier\UpdatePageInterface;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Webmozart\Assert\Assert;
 

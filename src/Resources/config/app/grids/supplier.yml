@@ -1,10 +1,10 @@
 sylius_grid:
     grids:
-        babdev_sylius_supplier_admin_supplier:
+        babdev_supplier_admin_supplier:
             driver:
                 name: doctrine/orm
                 options:
-                    class: BabDev\SyliusSupplierBundle\Model\Supplier
+                    class: "%babdev_supplier.model.supplier.class%"
             sorting:
                 name: asc
             filters:

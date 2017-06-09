@@ -2,7 +2,7 @@
 
 <!--
 
- This file is part of the BabDevSyliusSupplierBundle package.
+ This file is part of the BabDevSupplierPlugin package.
 
  (c) Michael Babker
 
@@ -17,7 +17,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="BabDev\SyliusSupplierBundle\Model\Supplier" table="babdev_sylius_supplier">
+    <mapped-superclass name="BabDev\SupplierPlugin\Model\Supplier" table="babdev_supplier">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>

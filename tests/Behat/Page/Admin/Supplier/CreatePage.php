@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BabDev\SyliusSupplierBundle\Tests\Behat\Page\Admin\Supplier;
+namespace BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\CreatePage as BaseCreatePage;
 
@@ -58,10 +58,10 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
         return array_merge(
             parent::getDefinedElements(),
             [
-                'code'          => '#babdev_sylius_supplier_code',
-                'name'          => '#babdev_sylius_supplier_name',
-                'description'   => '#babdev_sylius_supplier_description',
-                'contact_email' => '#babdev_sylius_supplier_contact_email',
+                'code'          => '#babdev_supplier_supplier_code',
+                'name'          => '#babdev_supplier_supplier_name',
+                'description'   => '#babdev_supplier_supplier_description',
+                'contact_email' => '#babdev_supplier_supplier_contact_email',
             ]
         );
     }

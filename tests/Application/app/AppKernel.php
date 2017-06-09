@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSyliusSupplierBundle package.
+ * This file is part of the BabDevSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -24,15 +24,15 @@ final class AppKernel extends Kernel
     {
         return array_merge(
             [
-                new BabDev\SyliusSupplierBundle\BabDevSyliusSupplierBundle(),
+                new BabDev\SupplierPlugin\BabDevSupplierPlugin(),
             ],
             parent::registerBundles(),
             [
                 new Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
                 new Sylius\Bundle\ShopBundle\SyliusShopBundle(),
 
-                new FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusApiBundle
-                new Sylius\Bundle\ApiBundle\SyliusApiBundle(),
+                new FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusAdminApiBundle
+                new Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
             ]
         );
     }

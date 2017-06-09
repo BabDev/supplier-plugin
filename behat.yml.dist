@@ -12,5 +12,5 @@ default:
         FriendsOfBehat\SymfonyExtension:
             kernel:
                 class: AppKernel
-                path: tests/app/AppKernel.php
-                bootstrap: tests/app/autoload.php
+                path: tests/Application/app/AppKernel.php
+                bootstrap: tests/Application/app/autoload.php
