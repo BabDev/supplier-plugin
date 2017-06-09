@@ -19,10 +19,10 @@ interface SupplierAwareInterface
     /**
      * @return SupplierInterface
      */
-    public function getSupplier();
+    public function getSupplier(): ?SupplierInterface;
 
     /**
      * @param null|SupplierInterface $supplier
      */
-    public function setSupplier(SupplierInterface $supplier = null);
+    public function setSupplier(?SupplierInterface $supplier);
 }

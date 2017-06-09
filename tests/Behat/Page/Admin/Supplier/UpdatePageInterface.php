@@ -21,10 +21,10 @@ interface UpdatePageInterface extends BaseUpdatePageInterface
     /**
      * @param string $description
      */
-    public function changeDescriptionTo($description);
+    public function changeDescriptionTo(string $description);
 
     /**
      * @return string
      */
-    public function getDescription();
+    public function getDescription(): string;
 }

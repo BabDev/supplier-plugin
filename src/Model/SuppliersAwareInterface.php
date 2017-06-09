@@ -21,14 +21,14 @@ interface SuppliersAwareInterface
     /**
      * @return Collection|SupplierInterface[]
      */
-    public function getSuppliers();
+    public function getSuppliers(): Collection;
 
     /**
      * @param SupplierInterface $supplier
      *
      * @return bool
      */
-    public function hasSupplier(SupplierInterface $supplier);
+    public function hasSupplier(SupplierInterface $supplier): bool;
 
     /**
      * @param SupplierInterface $supplier

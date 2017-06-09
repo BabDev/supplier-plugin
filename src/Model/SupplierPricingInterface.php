@@ -22,20 +22,20 @@ interface SupplierPricingInterface extends ResourceInterface, SupplierAwareInter
     /**
      * @return ProductVariantInterface
      */
-    public function getProductVariant();
+    public function getProductVariant(): ?ProductVariantInterface;
 
     /**
      * @param ProductVariantInterface|null $productVariant
      */
-    public function setProductVariant(ProductVariantInterface $productVariant = null);
+    public function setProductVariant(?ProductVariantInterface $productVariant);
 
     /**
      * @return int
      */
-    public function getPrice();
+    public function getPrice(): ?int;
 
     /**
      * @param int $price
      */
-    public function setPrice($price);
+    public function setPrice(int $price);
 }

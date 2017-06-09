@@ -21,7 +21,7 @@ final class UpdatePage extends BaseUpdatePage implements UpdatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function changeDescriptionTo($description)
+    public function changeDescriptionTo(string $description)
     {
         $this->getElement('description')->setValue($description);
     }
@@ -29,7 +29,7 @@ final class UpdatePage extends BaseUpdatePage implements UpdatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->getElement('description')->getValue();
     }

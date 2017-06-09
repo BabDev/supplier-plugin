@@ -21,7 +21,7 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function setCode($code)
+    public function setCode(string $code)
     {
         $this->getSession()->getPage()->fillField('Code', $code);
     }
@@ -29,7 +29,7 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->getSession()->getPage()->fillField('Name', $name);
     }
@@ -37,7 +37,7 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->getSession()->getPage()->fillField('Description', $description);
     }
@@ -45,7 +45,7 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
     /**
      * @param string $contactEmail
      */
-    public function setContactEmail($contactEmail)
+    public function setContactEmail(string $contactEmail)
     {
         $this->getSession()->getPage()->fillField('Contact email', $contactEmail);
     }

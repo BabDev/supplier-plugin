@@ -49,7 +49,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function getSupplier()
+    public function getSupplier(): ?SupplierInterface
     {
         return $this->supplier;
     }
@@ -57,7 +57,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setSupplier(SupplierInterface $supplier = null)
+    public function setSupplier(?SupplierInterface $supplier)
     {
         $this->supplier = $supplier;
     }
@@ -65,7 +65,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function getProductVariant()
+    public function getProductVariant(): ?ProductVariantInterface
     {
         return $this->productVariant;
     }
@@ -73,7 +73,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setProductVariant(ProductVariantInterface $productVariant = null)
+    public function setProductVariant(?ProductVariantInterface $productVariant)
     {
         $this->productVariant = $productVariant;
     }
@@ -81,7 +81,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function getPrice()
+    public function getPrice(): ?int
     {
         return $this->price;
     }
@@ -89,7 +89,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setPrice($price)
+    public function setPrice(int $price)
     {
         $this->price = $price;
     }

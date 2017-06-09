@@ -86,7 +86,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -94,7 +94,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setName($name)
+    public function setName(?string $name)
     {
         $this->name = $name;
     }
@@ -102,7 +102,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -110,7 +110,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setDescription($description)
+    public function setDescription(?string $description)
     {
         $this->description = $description;
     }
@@ -118,7 +118,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function getContactEmail()
+    public function getContactEmail(): ?string
     {
         return $this->contactEmail;
     }
@@ -126,7 +126,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setContactEmail($contactEmail)
+    public function setContactEmail(?string $contactEmail)
     {
         $this->contactEmail = $contactEmail;
     }

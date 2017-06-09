@@ -26,32 +26,32 @@ interface SupplierInterface extends
     ToggleableInterface
 {
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName();
+    public function getName(): ?string;
 
     /**
      * @param string $name
      */
-    public function setName($name);
+    public function setName(?string $name);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription();
+    public function getDescription(): ?string;
 
     /**
      * @param string $description
      */
-    public function setDescription($description);
+    public function setDescription(?string $description);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getContactEmail();
+    public function getContactEmail(): ?string;
 
     /**
      * @param string $contactEmail
      */
-    public function setContactEmail($contactEmail);
+    public function setContactEmail(?string $contactEmail);
 }
