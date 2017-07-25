@@ -15,7 +15,7 @@
         "php": "^7.1",
 
         "sylius/sylius": "^1.0@beta",
-        "symfony/symfony": "3.2.*"
+        "symfony/symfony": "^3.2"
     },
     "require-dev": {
         "jackalope/jackalope-doctrine-dbal": "^1.2",
