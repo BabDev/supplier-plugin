@@ -9,20 +9,19 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Fixture;
 
 use Sylius\Bundle\CoreBundle\Fixture\AbstractResourceFixture;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class SupplierFixture extends AbstractResourceFixture
 {
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'babdev_supplier_supplier';
     }
@@ -30,7 +29,7 @@ final class SupplierFixture extends AbstractResourceFixture
     /**
      * {@inheritdoc}
      */
-    protected function configureResourceNode(ArrayNodeDefinition $resourceNode)
+    protected function configureResourceNode(ArrayNodeDefinition $resourceNode): void
     {
         $resourceNode
             ->children()

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Form\Type;
 
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -19,9 +21,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class SupplierChoiceType extends AbstractType
 {
     /**
@@ -40,7 +39,7 @@ final class SupplierChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($options['multiple']) {
             $builder->addModelTransformer(new CollectionToArrayTransformer());
@@ -50,7 +49,7 @@ final class SupplierChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'choices' => function (Options $options) {
@@ -65,7 +64,7 @@ final class SupplierChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getParent(): string
     {
         return ChoiceType::class;
     }
@@ -73,7 +72,7 @@ final class SupplierChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'babdev_supplier_supplier_choice';
     }

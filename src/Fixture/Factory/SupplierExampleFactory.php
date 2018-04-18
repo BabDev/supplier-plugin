@@ -9,9 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Fixture\Factory;
 
 use BabDev\SupplierPlugin\Model\SupplierInterface;
+use Faker\Factory;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -19,9 +22,6 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class SupplierExampleFactory implements ExampleFactoryInterface
 {
     /**
@@ -47,7 +47,7 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
     {
         $this->supplierFactory = $supplierFactory;
 
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver =
             (new OptionsResolver())
                 ->setDefault('name', function (Options $options) {

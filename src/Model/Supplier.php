@@ -9,14 +9,13 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\ToggleableTrait;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 class Supplier implements SupplierInterface
 {
     use TimestampableTrait, ToggleableTrait;
@@ -70,7 +69,7 @@ class Supplier implements SupplierInterface
     /**
      * @return string
      */
-    public function getCode()
+    public function getCode(): ?string
     {
         return $this->code;
     }
@@ -78,7 +77,7 @@ class Supplier implements SupplierInterface
     /**
      * @param string $code
      */
-    public function setCode($code)
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
@@ -94,7 +93,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setName(?string $name)
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
@@ -110,7 +109,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setDescription(?string $description)
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
@@ -126,7 +125,7 @@ class Supplier implements SupplierInterface
     /**
      * {@inheritdoc}
      */
-    public function setContactEmail(?string $contactEmail)
+    public function setContactEmail(?string $contactEmail): void
     {
         $this->contactEmail = $contactEmail;
     }

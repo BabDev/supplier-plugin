@@ -9,13 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
 use Doctrine\Common\Collections\Collection;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface SuppliersAwareInterface
 {
     /**
@@ -33,10 +32,10 @@ interface SuppliersAwareInterface
     /**
      * @param SupplierInterface $supplier
      */
-    public function addSupplier(SupplierInterface $supplier);
+    public function addSupplier(SupplierInterface $supplier): void;
 
     /**
      * @param SupplierInterface $supplier
      */
-    public function removeSupplier(SupplierInterface $supplier);
+    public function removeSupplier(SupplierInterface $supplier): void;
 }

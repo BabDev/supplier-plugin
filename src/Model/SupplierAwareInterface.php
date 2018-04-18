@@ -9,11 +9,10 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface SupplierAwareInterface
 {
     /**
@@ -24,5 +23,5 @@ interface SupplierAwareInterface
     /**
      * @param null|SupplierInterface $supplier
      */
-    public function setSupplier(?SupplierInterface $supplier);
+    public function setSupplier(?SupplierInterface $supplier): void;
 }

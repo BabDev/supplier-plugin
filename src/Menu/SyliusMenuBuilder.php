@@ -9,19 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class SyliusMenuBuilder
 {
     /**
      * @param MenuBuilderEvent $event
      */
-    public function configureSupplierMenu(MenuBuilderEvent $event)
+    public function configureSupplierMenu(MenuBuilderEvent $event): void
     {
         $adminMenu = $event->getMenu();
 

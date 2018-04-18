@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
@@ -16,11 +18,6 @@ use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
-/**
- * Sylius supplier management plugin.
- *
- * @author Michael Babker <michael.babker@gmail.com>
- */
 class BabDevSupplierPlugin extends AbstractResourceBundle
 {
     use SyliusPluginTrait;
@@ -28,7 +25,7 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
     /**
      * {@inheritdoc}
      */
-    protected function getBundlePrefix()
+    protected function getBundlePrefix(): string
     {
         return 'babdev_supplier';
     }
@@ -62,7 +59,7 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
     /**
      * {@inheritdoc}
      */
-    public function getSupportedDrivers()
+    public function getSupportedDrivers(): array
     {
         return [
             SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
@@ -72,7 +69,7 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
     /**
      * {@inheritdoc}
      */
-    protected function getModelNamespace()
+    protected function getModelNamespace(): ?string
     {
         return __NAMESPACE__.'\\Model';
     }

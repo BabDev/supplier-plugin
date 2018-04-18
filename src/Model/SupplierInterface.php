@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
 use Sylius\Component\Resource\Model\CodeAwareInterface;
@@ -16,9 +18,6 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\ToggleableInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface SupplierInterface extends
     CodeAwareInterface,
     ResourceInterface,
@@ -33,7 +32,7 @@ interface SupplierInterface extends
     /**
      * @param string $name
      */
-    public function setName(?string $name);
+    public function setName(?string $name): void;
 
     /**
      * @return string|null
@@ -43,7 +42,7 @@ interface SupplierInterface extends
     /**
      * @param string $description
      */
-    public function setDescription(?string $description);
+    public function setDescription(?string $description): void;
 
     /**
      * @return string|null
@@ -53,5 +52,5 @@ interface SupplierInterface extends
     /**
      * @param string $contactEmail
      */
-    public function setContactEmail(?string $contactEmail);
+    public function setContactEmail(?string $contactEmail): void;
 }

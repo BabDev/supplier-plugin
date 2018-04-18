@@ -9,13 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
 use Sylius\Component\Product\Model\ProductVariantInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 class SupplierPricing implements SupplierPricingInterface
 {
     /**
@@ -57,7 +56,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setSupplier(?SupplierInterface $supplier)
+    public function setSupplier(?SupplierInterface $supplier): void
     {
         $this->supplier = $supplier;
     }
@@ -73,7 +72,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setProductVariant(?ProductVariantInterface $productVariant)
+    public function setProductVariant(?ProductVariantInterface $productVariant): void
     {
         $this->productVariant = $productVariant;
     }
@@ -89,7 +88,7 @@ class SupplierPricing implements SupplierPricingInterface
     /**
      * {@inheritdoc}
      */
-    public function setPrice(int $price)
+    public function setPrice(?int $price): void
     {
         $this->price = $price;
     }

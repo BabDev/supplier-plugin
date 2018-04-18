@@ -9,33 +9,32 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Model;
 
 use Sylius\Component\Product\Model\ProductVariantInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface SupplierPricingInterface extends ResourceInterface, SupplierAwareInterface
 {
     /**
-     * @return ProductVariantInterface
+     * @return ProductVariantInterface|null
      */
     public function getProductVariant(): ?ProductVariantInterface;
 
     /**
      * @param ProductVariantInterface|null $productVariant
      */
-    public function setProductVariant(?ProductVariantInterface $productVariant);
+    public function setProductVariant(?ProductVariantInterface $productVariant): void;
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getPrice(): ?int;
 
     /**
-     * @param int $price
+     * @param int|null $price
      */
-    public function setPrice(int $price);
+    public function setPrice(?int $price): void;
 }
