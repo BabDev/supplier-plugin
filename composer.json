@@ -40,9 +40,8 @@
         "psr-4": { "BabDev\\SupplierPlugin\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "BabDev\\SupplierPlugin\\Tests\\Behat\\": "tests/Behat/"
-        }
+        "classmap": ["tests/Application/app/AppKernel.php"],
+        "psr-4": { "BabDev\\SupplierPlugin\\Tests\\Behat\\": "tests/Behat/" }
     },
     "config": {
         "bin-dir": "bin"
