@@ -19,7 +19,6 @@
 
         <service id="babdev_supplier.fixture.example_factory.supplier" class="BabDev\SupplierPlugin\Fixture\Factory\SupplierExampleFactory">
             <argument type="service" id="babdev_supplier.factory.supplier" />
-            <argument type="service" id="babdev_supplier.repository.supplier" />
         </service>
 
         <service id="babdev_supplier.fixture.supplier" class="BabDev\SupplierPlugin\Fixture\SupplierFixture">

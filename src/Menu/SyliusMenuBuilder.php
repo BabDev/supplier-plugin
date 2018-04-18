@@ -26,10 +26,12 @@ final class SyliusMenuBuilder
 
         $configurationMenu = $adminMenu->getChild('configuration');
 
-        $configurationMenu
-            ->addChild('routes', ['route' => 'babdev_supplier_admin_supplier_index'])
-            ->setLabel('babdev_supplier.menu.admin.suppliers')
-            ->setLabelAttribute('icon', 'shopping bag')
-        ;
+        if ($configurationMenu) {
+            $configurationMenu
+                ->addChild('routes', ['route' => 'babdev_supplier_admin_supplier_index'])
+                ->setLabel('babdev_supplier.menu.admin.suppliers')
+                ->setLabelAttribute('icon', 'shopping bag')
+            ;
+        }
     }
 }
