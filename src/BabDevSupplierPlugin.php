@@ -71,6 +71,6 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
      */
     protected function getModelNamespace(): ?string
     {
-        return __NAMESPACE__.'\\Model';
+        return __NAMESPACE__ . '\\Model';
     }
 }

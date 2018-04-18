@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\UpdatePage as BaseUpdatePage;

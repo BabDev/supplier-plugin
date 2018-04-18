@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Tests\Behat\Context\Setup;
 
 use BabDev\SupplierPlugin\Model\Supplier;
@@ -87,7 +89,6 @@ final class SupplierContext implements Context
 
         $this->sharedStorage->set('supplier', $supplier);
     }
-
 
     /**
      * @Given /^(it) is not enabled yet$/

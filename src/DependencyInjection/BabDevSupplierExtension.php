@@ -34,7 +34,7 @@ final class BabDevSupplierExtension extends AbstractResourceExtension
     public function load(array $config, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration($this->getConfiguration($config, $container), $config);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         $this->registerResources('babdev_supplier', $config['driver'], $config['resources'], $container);
 

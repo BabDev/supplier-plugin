@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BabDev\SupplierPlugin\Tests\Behat\Context\Ui\Admin;
 
-use Behat\Behat\Context\Context;
 use BabDev\SupplierPlugin\Model\Supplier;
 use BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier\CreatePageInterface;
 use BabDev\SupplierPlugin\Tests\Behat\Page\Admin\Supplier\UpdatePageInterface;
+use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Webmozart\Assert\Assert;
 
