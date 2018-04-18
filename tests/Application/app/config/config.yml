@@ -1,5 +1,5 @@
 parameters:
-    locale: "en_US"
+    locale: en_US
     secret: "Heron is the best animal in the world!"
 
 imports:
@@ -22,9 +22,17 @@ framework:
     validation: { enable_annotations: true }
     templating: { engines: ["twig"] }
     default_locale: "%locale%"
+    trusted_proxies: ~
     session:
         storage_id: session.storage.mock_file
     test: ~
+
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
 
 swiftmailer:
     disable_delivery: true
@@ -36,7 +44,7 @@ swiftmailer:
 doctrine:
     dbal:
         driver: "pdo_sqlite"
-        path: "%kernel.cache_dir%/db.sql"
+        path: "%kernel.root_dir%/../var/db.sql"
         charset: UTF8
 
 fos_rest:
@@ -54,11 +62,3 @@ fos_rest:
 sylius_theme:
     sources:
         test: ~
-
-sylius_resource:
-    drivers:
-        - doctrine/orm
-
-sylius_grid:
-    drivers:
-        - doctrine/orm

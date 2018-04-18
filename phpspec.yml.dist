@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: BabDev\SupplierPlugin
+        psr4_prefix: BabDev\SupplierPlugin
