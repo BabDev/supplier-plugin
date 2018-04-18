@@ -35,25 +35,21 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
      */
     public function getContainerExtension()
     {
-        if (null === $this->extension) {
-            $this->extension = false;
+        if (null === $this->containerExtension) {
+            $extension = $this->createContainerExtension();
 
-            $class = $this->getContainerExtensionClass();
-
-            if (class_exists($class)) {
-                $extension = new $class();
-
+            if (null !== $extension) {
                 if (!$extension instanceof ExtensionInterface) {
-                    throw new \LogicException(sprintf('Extension %s must implement Symfony\Component\DependencyInjection\Extension\ExtensionInterface.', $class));
+                    throw new \LogicException(sprintf('Extension %s must implement %s.', get_class($extension), ExtensionInterface::class));
                 }
 
-                $this->extension = $extension;
+                $this->containerExtension = $extension;
+            } else {
+                $this->containerExtension = false;
             }
         }
 
-        if ($this->extension) {
-            return $this->extension;
-        }
+        return $this->containerExtension ?: null;
     }
 
     /**
