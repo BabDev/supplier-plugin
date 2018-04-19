@@ -60,10 +60,10 @@ final class CreatePage extends BaseCreatePage implements CreatePageInterface
         return array_merge(
             parent::getDefinedElements(),
             [
-                'code' => '#babdev_supplier_supplier_code',
-                'name' => '#babdev_supplier_supplier_name',
-                'description' => '#babdev_supplier_supplier_description',
-                'contact_email' => '#babdev_supplier_supplier_contact_email',
+                'code' => '#babdev_sylius_supplier_supplier_code',
+                'name' => '#babdev_sylius_supplier_supplier_name',
+                'description' => '#babdev_sylius_supplier_supplier_description',
+                'contact_email' => '#babdev_sylius_supplier_supplier_contact_email',
             ]
         );
     }
