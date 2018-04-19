@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin\Form\Type;
+namespace BabDev\SyliusSupplierPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
@@ -42,7 +42,7 @@ final class SupplierType extends AbstractResourceType
                 'required' => false,
             ])
             ->add('contactEmail', EmailType::class, [
-                'label' => 'babdev_supplier.form.supplier.contact_email',
+                'label' => 'babdev_sylius_supplier.form.supplier.contact_email',
                 'required' => false,
             ])
         ;
@@ -53,6 +53,6 @@ final class SupplierType extends AbstractResourceType
      */
     public function getBlockPrefix(): string
     {
-        return 'babdev_supplier_supplier';
+        return 'babdev_sylius_supplier_supplier';
     }
 }

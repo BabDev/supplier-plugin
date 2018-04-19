@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,13 +11,13 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin\DependencyInjection;
+namespace BabDev\SyliusSupplierPlugin\DependencyInjection;
 
-use BabDev\SupplierPlugin\Form\Type\SupplierType;
-use BabDev\SupplierPlugin\Model\Supplier;
-use BabDev\SupplierPlugin\Model\SupplierInterface;
-use BabDev\SupplierPlugin\Model\SupplierPricing;
-use BabDev\SupplierPlugin\Model\SupplierPricingInterface;
+use BabDev\SyliusSupplierPlugin\Form\Type\SupplierType;
+use BabDev\SyliusSupplierPlugin\Model\Supplier;
+use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
+use BabDev\SyliusSupplierPlugin\Model\SupplierPricing;
+use BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
@@ -33,7 +33,7 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('babdev_supplier');
+        $rootNode = $treeBuilder->root('babdev_sylius_supplier');
 
         $rootNode
             ->addDefaultsIfNotSet()

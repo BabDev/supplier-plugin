@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin\Fixture\Factory;
+namespace BabDev\SyliusSupplierPlugin\Fixture\Factory;
 
-use BabDev\SupplierPlugin\Model\SupplierInterface;
+use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Faker\Factory;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;

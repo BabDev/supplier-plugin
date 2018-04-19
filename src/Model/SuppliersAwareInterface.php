@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin\Model;
+namespace BabDev\SyliusSupplierPlugin\Model;
 
 use Doctrine\Common\Collections\Collection;
 

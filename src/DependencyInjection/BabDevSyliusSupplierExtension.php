@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,21 +11,21 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin\DependencyInjection;
+namespace BabDev\SyliusSupplierPlugin\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class BabDevSupplierExtension extends AbstractResourceExtension
+final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
 {
     /**
      * {@inheritdoc}
      */
     public function getAlias()
     {
-        return 'babdev_supplier';
+        return 'babdev_sylius_supplier';
     }
 
     /**
@@ -36,7 +36,7 @@ final class BabDevSupplierExtension extends AbstractResourceExtension
         $config = $this->processConfiguration($this->getConfiguration($config, $container), $config);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $this->registerResources('babdev_supplier', $config['driver'], $config['resources'], $container);
+        $this->registerResources('babdev_sylius_supplier', $config['driver'], $config['resources'], $container);
 
         $loader->load('services.xml');
     }

@@ -2,7 +2,7 @@
 
 <!--
 
- This file is part of the BabDevSupplierPlugin package.
+ This file is part of the BabDevSyliusSupplierPlugin package.
 
  (c) Michael Babker
 
@@ -17,7 +17,7 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <mapped-superclass name="BabDev\SupplierPlugin\Model\SupplierPricing" table="babdev_supplier_pricing">
+    <mapped-superclass name="BabDev\SyliusSupplierPlugin\Model\SupplierPricing" table="babdev_supplier_pricing">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -29,7 +29,7 @@
             </cascade>
         </one-to-many>
 
-        <many-to-one field="supplier" target-entity="BabDev\SupplierPlugin\Model\SupplierInterface">
+        <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
             <join-column name="supplier_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
         </many-to-one>
     </mapped-superclass>

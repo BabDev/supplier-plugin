@@ -1,4 +1,4 @@
-babdev_supplier:
+babdev_sylius_supplier:
     form:
         supplier:
             contact_email: Contact email

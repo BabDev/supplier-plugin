@@ -1,22 +1,22 @@
-babdev_supplier_admin_supplier:
+babdev_sylius_supplier_admin_supplier:
     resource: |
-        alias: babdev_supplier.supplier
+        alias: babdev_sylius_supplier.supplier
         section: admin
         templates: SyliusAdminBundle:Crud
         except: ['delete']
         redirect: index
-        grid: babdev_supplier_admin_supplier
+        grid: babdev_sylius_supplier_admin_supplier
         vars:
           all:
-              subheader: babdev_supplier.ui.configure_your_store_suppliers
+              subheader: babdev_sylius_supplier.ui.configure_your_store_suppliers
           index:
               icon: shopping bag
     type: sylius.resource
 
-babdev_supplier_admin_supplier_delete:
+babdev_sylius_supplier_admin_supplier_delete:
     path: /suppliers/{id}
     methods: [DELETE]
     defaults:
-        _controller: babdev_supplier.controller.supplier:deleteAction
+        _controller: babdev_sylius_supplier.controller.supplier:deleteAction
         _sylius:
             section: admin

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the BabDevSupplierPlugin package.
+ * This file is part of the BabDevSyliusSupplierPlugin package.
  *
  * (c) Michael Babker
  *
@@ -11,14 +11,14 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SupplierPlugin;
+namespace BabDev\SyliusSupplierPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
-class BabDevSupplierPlugin extends AbstractResourceBundle
+class BabDevSyliusSupplierPlugin extends AbstractResourceBundle
 {
     use SyliusPluginTrait;
 
@@ -27,7 +27,7 @@ class BabDevSupplierPlugin extends AbstractResourceBundle
      */
     protected function getBundlePrefix(): string
     {
-        return 'babdev_supplier';
+        return 'babdev_sylius_supplier';
     }
 
     /**
