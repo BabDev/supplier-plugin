@@ -10,24 +10,35 @@ Simple Supplier integration for Sylius.
     $ composer require babdev/supplier-plugin
     ```
     
-2. Add this bundle in `AppKernel.php`:
+2. Add this plugin in `AppKernel.php`.  Note that this plugin MUST be listed before the Sylius core bundles, therefore your `registerBundles()` method should look similar to the following (a pull request would be welcome removing this requirement, as of this writing I haven't identified the issue causing it):
 
     ```php
-    new \BabDev\SupplierPlugin\BabDevSupplierPlugin(),
+    public function registerBundles(): array
+    {
+        $preResourceBundles = [
+            new \BabDev\SyliusSupplierPlugin\BabDevSyliusSupplierPlugin(),
+        ];
+
+        $appBundles = [
+            // Other local bundles you have installed
+        ];
+
+        return array_merge($preResourceBundles, parent::registerBundles(), $appBundles);
+    }
     ```
 
 3. Import config file in `app/config/config.yml`:
 
     ```yaml
     imports:
-       - { resource: "@BabDevSupplierPlugin/Resources/config/app/config.yml" }
+       - { resource: "@BabDevSyliusSupplierPlugin/Resources/config/app/config.yml" }
     ```
 
 4. Import routing files in `app/config/routing.yml`:
 
     ```yaml
-    babdev_supplier_admin:
-        resource: "@BabDevSupplierPlugin/Resources/config/app/admin_routing.yml"
+    babdev_sylius_supplier_admin:
+        resource: "@BabDevSyliusSupplierPlugin/Resources/config/app/admin_routing.yml"
         prefix: /admin # root path of SyliusAdmin
     ```
 
