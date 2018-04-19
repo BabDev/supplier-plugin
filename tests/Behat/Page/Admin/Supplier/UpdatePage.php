@@ -44,7 +44,7 @@ final class UpdatePage extends BaseUpdatePage implements UpdatePageInterface
         return array_merge(
             parent::getDefinedElements(),
             [
-                'description' => '#babdev_supplier_supplier_description',
+                'description' => '#babdev_sylius_supplier_supplier_description',
             ]
         );
     }
