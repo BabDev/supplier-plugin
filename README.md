@@ -42,6 +42,20 @@ Simple Supplier integration for Sylius.
         prefix: /admin # root path of SyliusAdmin
     ```
 
+5. Sync the database
+
+    ```bash
+    bin/console doctrine:migrations:diff 
+    ```
+    
+    If you have already installed Sylius, you will need to run
+    
+    ```bash
+    bin/console doctrine:migrations:migrate
+    ```
+    
+    If you still need to run sylius:install, you can skip this last command.
+
 ## Complementary documentation
 
 - [Sylius ResourceBundle](http://docs.sylius.org/en/latest/bundles/SyliusResourceBundle/)
