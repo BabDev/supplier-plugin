@@ -1,0 +1,14 @@
+babdev_sylius_supplier:
+    form:
+        supplier:
+            contact_email: Contact e-mailadres
+
+    menu:
+        admin:
+            suppliers: Leveranciers
+
+    ui:
+        configure_your_store_suppliers: "Configureer de leveranciers van je winkel"
+        edit_supplier: Bewerk leverancier
+        new_supplier: Nieuwe leverancier
+        suppliers: Leveranciers

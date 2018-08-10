@@ -1,0 +1,12 @@
+babdev_sylius_supplier:
+    supplier:
+        code:
+            not_blank: Geef een leverancierscode op.
+            regex: Leverancierscodes kunnen alleen uit letters, nummers, streepjes en onderliggende streepjes bestaan.
+            unique: De leverancierscode moet uniek zijn.
+        name:
+            not_blank: Geef een leveranciersnaam op.
+        contact_email:
+            invalid: Het e-mailadres is incorrect.
+            max: Het e-mailadres mag niet langer zijn dan {{ limit }} karakters.
+            min: Het e-mailadres moet minimaal {{ limit }} karakters lang zijn.
