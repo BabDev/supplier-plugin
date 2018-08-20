@@ -1,5 +1,7 @@
 babdev_sylius_supplier:
     form:
+        product:
+            supplier: Supplier
         supplier:
             contact_email: Contact email
 
@@ -11,4 +13,5 @@ babdev_sylius_supplier:
         configure_your_store_suppliers: "Configure your store's suppliers"
         edit_supplier: Edit supplier
         new_supplier: New supplier
+        supplier: Supplier
         suppliers: Suppliers

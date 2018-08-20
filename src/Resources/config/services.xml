@@ -27,6 +27,10 @@
             <tag name="sylius_fixtures.fixture" />
         </service>
 
+        <service id="babdev_sylius_supplier.form.extension.product" class="BabDev\SyliusSupplierPlugin\Form\Extension\ProductTypeExtension">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductType" />
+        </service>
+
         <service id="babdev_sylius_supplier.form.type.supplier" class="BabDev\SyliusSupplierPlugin\Form\Type\SupplierType">
             <argument>%babdev_sylius_supplier.model.supplier.class%</argument>
             <argument type="collection"><argument>sylius</argument></argument>
