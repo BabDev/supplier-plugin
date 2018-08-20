@@ -46,6 +46,12 @@ doctrine:
         driver: "pdo_sqlite"
         path: "%kernel.root_dir%/../var/db.sql"
         charset: UTF8
+    orm:
+        mappings:
+            BabDevSyliusSupplierPlugin:
+                type: xml
+                dir: "%kernel.project_dir%/app/Resources/config/doctrine"
+                prefix: BabDev\SyliusSupplierPlugin\Tests\App\Model
 
 fos_rest:
     exception: ~
@@ -62,3 +68,12 @@ fos_rest:
 sylius_theme:
     sources:
         test: ~
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: 'BabDev\SyliusSupplierPlugin\Tests\App\Model\Product'
+        product_variant:
+            classes:
+                model: 'BabDev\SyliusSupplierPlugin\Tests\App\Model\ProductVariant'

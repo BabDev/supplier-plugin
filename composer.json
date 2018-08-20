@@ -41,7 +41,10 @@
     },
     "autoload-dev": {
         "classmap": ["tests/Application/app/AppKernel.php"],
-        "psr-4": { "BabDev\\SyliusSupplierPlugin\\Tests\\Behat\\": "tests/Behat/" }
+        "psr-4": {
+            "BabDev\\SyliusSupplierPlugin\\Tests\\App\\": "tests/Application/src/",
+            "BabDev\\SyliusSupplierPlugin\\Tests\\Behat\\": "tests/Behat/"
+        }
     },
     "config": {
         "bin-dir": "bin"
