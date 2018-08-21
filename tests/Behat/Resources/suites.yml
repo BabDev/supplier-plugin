@@ -1,2 +1,3 @@
 imports:
+    - suites/product.yml
     - suites/supplier.yml

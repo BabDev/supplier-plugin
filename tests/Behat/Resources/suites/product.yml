@@ -1,0 +1,19 @@
+default:
+    suites:
+        ui_product_with_supplier:
+            contexts_services:
+                - sylius.behat.context.hook.doctrine_orm
+
+                - sylius.behat.context.transform.locale
+
+                - sylius.behat.context.setup.channel
+                - sylius.behat.context.setup.admin_security
+                - babdev_sylius_supplier.context.setup.supplier
+
+                - sylius.behat.context.ui.admin.managing_products
+                - sylius.behat.context.ui.admin.notification
+
+                - babdev_sylius_supplier.context.ui.admin.managing_products
+
+            filters:
+                tags: "@managing_products_with_suppliers"
