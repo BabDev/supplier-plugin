@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Tests\Acme\SyliusExamplePlugin\Application\Kernel;
+use Tests\BabDev\SyliusSupplierPlugin\Application\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

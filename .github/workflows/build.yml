@@ -162,7 +162,6 @@ jobs:
                 name: Check coding standards
                 run: bin/ecs check src
 
-
             -
                 name: Run PHPStan
                 run: bin/phpstan analyse -c phpstan.neon -l max src/
