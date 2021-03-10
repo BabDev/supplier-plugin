@@ -26,7 +26,7 @@ final class SyliusMenuBuilder
 
         $configurationMenu = $adminMenu->getChild('configuration');
 
-        if ($configurationMenu) {
+        if (null !== $configurationMenu) {
             $configurationMenu
                 ->addChild('routes', ['route' => 'babdev_sylius_supplier_admin_supplier_index'])
                 ->setLabel('babdev_sylius_supplier.menu.admin.suppliers')

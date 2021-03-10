@@ -23,22 +23,23 @@ class SupplierPricing implements SupplierPricingInterface
     protected $id;
 
     /**
-     * @var SupplierInterface
+     * @var SupplierInterface|null
      */
     protected $supplier;
 
     /**
-     * @var ProductVariantInterface
+     * @var ProductVariantInterface|null
      */
     protected $productVariant;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $price;
 
     /**
      * {@inheritdoc}
+     * @phpstan-ignore-next-line
      */
     public function getId()
     {

@@ -31,6 +31,9 @@ final class SupplierFixture extends AbstractResourceFixture
      */
     protected function configureResourceNode(ArrayNodeDefinition $resourceNode): void
     {
+        /**
+         * @phpstan-ignore-next-line
+         */
         $resourceNode
             ->children()
                 ->scalarNode('name')->end()

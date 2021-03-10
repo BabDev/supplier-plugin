@@ -39,6 +39,9 @@ class BabDevSyliusSupplierPlugin extends AbstractResourceBundle
             $extension = $this->createContainerExtension();
 
             if (null !== $extension) {
+                /**
+                 * @phpstan-ignore-next-line
+                 */
                 if (!$extension instanceof ExtensionInterface) {
                     throw new \LogicException(sprintf('Extension %s must implement %s.', get_class($extension), ExtensionInterface::class));
                 }
@@ -49,7 +52,10 @@ class BabDevSyliusSupplierPlugin extends AbstractResourceBundle
             }
         }
 
-        return $this->containerExtension ?: null;
+        /**
+         * @phpstan-ignore-next-line
+         */
+        return $this->containerExtension === false ? null : $this->containerExtension;
     }
 
     /**

@@ -26,22 +26,22 @@ class Supplier implements SupplierInterface
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $code;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $name;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $description;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $contactEmail;
 
@@ -60,6 +60,7 @@ class Supplier implements SupplierInterface
 
     /**
      * {@inheritdoc}
+     * @phpstan-ignore-next-line
      */
     public function getId()
     {

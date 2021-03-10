@@ -48,12 +48,15 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
         $this->faker = Factory::create();
         $this->optionsResolver =
             (new OptionsResolver())
-                ->setDefault('name', function (Options $options) {
+                ->setDefault('name', function (Options $options): string {
+                    /**
+                     * @phpstan-ignore-next-line
+                     */
                     return StringInflector::nameToCode($this->faker->words(3, true));
                 })
                 ->setAllowedTypes('name', 'string')
 
-                ->setDefault('code', function (Options $options) {
+                ->setDefault('code', function (Options $options): string {
                     return StringInflector::nameToCode($options['name']);
                 })
                 ->setAllowedTypes('code', 'string')
