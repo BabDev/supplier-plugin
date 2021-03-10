@@ -28,7 +28,8 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 final class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @psalm-suppress ArgumentTypeCoercion
+     * @psalm-suppress PossiblyUndefinedMethod
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
@@ -47,6 +48,10 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
+    /**
+     * @psalm-suppress PossiblyUndefinedMethod
+     * @psalm-suppress PossiblyNullReference
+     */
     private function addResourcesSection(ArrayNodeDefinition $node): void
     {
         $node

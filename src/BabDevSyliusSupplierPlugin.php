@@ -31,7 +31,9 @@ class BabDevSyliusSupplierPlugin extends AbstractResourceBundle
     }
 
     /**
-     * {@inheritdoc}
+     * @psalm-suppress DocblockTypeContradiction
+     * @psalm-suppress InvalidReturnStatement
+     * @psalm-suppress InvalidReturnType
      */
     public function getContainerExtension()
     {

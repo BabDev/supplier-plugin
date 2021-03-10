@@ -59,8 +59,9 @@ class Supplier implements SupplierInterface
     }
 
     /**
-     * {@inheritdoc}
      * @phpstan-ignore-next-line
+     *
+     * @return mixed
      */
     public function getId()
     {

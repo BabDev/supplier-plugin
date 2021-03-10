@@ -51,6 +51,7 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
                 ->setDefault('name', function (Options $options): string {
                     /**
                      * @phpstan-ignore-next-line
+                     * @psalm-suppress PossiblyInvalidArgument
                      */
                     return StringInflector::nameToCode($this->faker->words(3, true));
                 })
