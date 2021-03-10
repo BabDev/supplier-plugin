@@ -163,9 +163,10 @@ jobs:
                 name: Validate database schema
                 run: (cd tests/Application && bin/console doctrine:schema:validate)
 
-            -
-                name: Check coding standards
-                run: bin/ecs check src
+# TODO: Uncomment after https://github.com/SyliusLabs/CodingStandard/pull/34 gets merged and released
+#            -
+#                name: Check coding standards
+#                run: bin/ecs check src
 
             -
                 name: Run PHPStan
