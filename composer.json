@@ -49,6 +49,7 @@
         "vimeo/psalm": "4.4.1"
     },
     "prefer-stable": true,
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": { "BabDev\\SyliusSupplierPlugin\\": "src/" }
     },

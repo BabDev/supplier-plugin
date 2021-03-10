@@ -15,7 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Context\Setup;
 
 use BabDev\SyliusSupplierPlugin\Model\Supplier;
 use Behat\Behat\Context\Context;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 

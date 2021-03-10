@@ -1,7 +1,7 @@
 default:
     suites:
         ui_supplier:
-            contexts_services:
+            contexts:
                 - sylius.behat.context.hook.doctrine_orm
 
                 - sylius.behat.context.transform.shared_storage
