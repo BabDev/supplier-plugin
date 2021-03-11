@@ -108,6 +108,7 @@ jobs:
                 if: matrix.sylius != ''
                 run: composer require "sylius/sylius:${{ matrix.sylius }}" --no-update --no-scripts --no-interaction
 
+# TODO: remove the fix after https://github.com/Sylius/Sylius/pull/12427 is merged and released, see https://github.com/Sylius/PluginSkeleton/pull/255
             -
                 name: Fix FOSOAuthServerBundle on Sylius 1.9
                 if: matrix.sylius == '~1.9.0'
