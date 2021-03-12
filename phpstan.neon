@@ -1,7 +1,6 @@
 parameters:
     reportUnmatchedIgnoredErrors: false
     checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
 
     excludes_analyse:
         # Makes PHPStan crash
@@ -12,4 +11,5 @@ parameters:
         - 'tests/Application/src/**.php'
 
     ignoreErrors:
+        - '/Method BabDev\\SyliusSupplierPlugin\\BabDevSyliusSupplierPlugin::getContainerExtension\(\) should return Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null but returns bool\|Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null\./'
         - '/Parameter #1 \$configuration of method Symfony\\Component\\DependencyInjection\\Extension\\Extension::processConfiguration\(\) expects Symfony\\Component\\Config\\Definition\\ConfigurationInterface, Symfony\\Component\\Config\\Definition\\ConfigurationInterface\|null given\./'
