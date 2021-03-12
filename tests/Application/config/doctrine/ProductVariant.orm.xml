@@ -8,7 +8,7 @@
     <mapped-superclass name="BabDev\SyliusSupplierPlugin\Tests\App\Model\ProductVariant" table="sylius_product_variant">
 
         <many-to-one field="supplierPricing" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface" inversed-by="productVariant">
-            <join-column name="supplier_pricing_id" referenced-column-name="id" nullable="true" on-delete="SET NULL" />
+            <join-column name="supplier_pricing_id" on-delete="SET NULL" />
             <cascade>
                 <cascade-all/>
             </cascade>

@@ -26,6 +26,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
             ->add('supplier', SupplierChoiceType::class, [
                 'multiple' => false,
                 'expanded' => false,
+                'required' => false,
                 'label' => 'babdev_sylius_supplier.form.product.supplier',
             ])
         ;
