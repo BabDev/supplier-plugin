@@ -23,9 +23,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class SupplierType extends AbstractResourceType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -48,9 +45,6 @@ final class SupplierType extends AbstractResourceType
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix(): string
     {
         return 'babdev_sylius_supplier_supplier';

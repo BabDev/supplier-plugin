@@ -18,9 +18,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 final class SupplierFixture extends AbstractResourceFixture
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'babdev_sylius_supplier_supplier';

@@ -18,23 +18,11 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 interface SupplierPricingInterface extends ResourceInterface, SupplierAwareInterface
 {
-    /**
-     * @return ProductVariantInterface|null
-     */
     public function getProductVariant(): ?ProductVariantInterface;
 
-    /**
-     * @param ProductVariantInterface|null $productVariant
-     */
     public function setProductVariant(?ProductVariantInterface $productVariant): void;
 
-    /**
-     * @return int|null
-     */
     public function getPrice(): ?int;
 
-    /**
-     * @param int|null $price
-     */
     public function setPrice(?int $price): void;
 }

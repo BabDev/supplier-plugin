@@ -15,13 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\Model;
 
 interface SupplierAwareInterface
 {
-    /**
-     * @return SupplierInterface
-     */
     public function getSupplier(): ?SupplierInterface;
 
-    /**
-     * @param SupplierInterface|null $supplier
-     */
     public function setSupplier(?SupplierInterface $supplier): void;
 }

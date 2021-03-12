@@ -28,17 +28,11 @@ final class SupplierChoiceType extends AbstractType
      */
     private $supplierRepository;
 
-    /**
-     * @param RepositoryInterface $supplierRepository
-     */
     public function __construct(RepositoryInterface $supplierRepository)
     {
         $this->supplierRepository = $supplierRepository;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($options['multiple']) {
@@ -46,9 +40,6 @@ final class SupplierChoiceType extends AbstractType
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -61,17 +52,11 @@ final class SupplierChoiceType extends AbstractType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParent(): string
     {
         return ChoiceType::class;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix(): string
     {
         return 'babdev_sylius_supplier_supplier_choice';

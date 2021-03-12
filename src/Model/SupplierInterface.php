@@ -24,33 +24,15 @@ interface SupplierInterface extends
     TimestampableInterface,
     ToggleableInterface
 {
-    /**
-     * @return string|null
-     */
     public function getName(): ?string;
 
-    /**
-     * @param string $name
-     */
     public function setName(?string $name): void;
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string;
 
-    /**
-     * @param string $description
-     */
     public function setDescription(?string $description): void;
 
-    /**
-     * @return string|null
-     */
     public function getContactEmail(): ?string;
 
-    /**
-     * @param string $contactEmail
-     */
     public function setContactEmail(?string $contactEmail): void;
 }

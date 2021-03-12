@@ -17,9 +17,6 @@ use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
 final class SyliusMenuBuilder
 {
-    /**
-     * @param MenuBuilderEvent $event
-     */
     public function configureSupplierMenu(MenuBuilderEvent $event): void
     {
         $adminMenu = $event->getMenu();

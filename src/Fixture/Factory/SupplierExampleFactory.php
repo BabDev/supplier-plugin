@@ -15,6 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\Fixture\Factory;
 
 use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -29,7 +30,7 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
     private $supplierFactory;
 
     /**
-     * @var \Faker\Generator
+     * @var Generator
      */
     private $faker;
 
@@ -38,9 +39,6 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
      */
     private $optionsResolver;
 
-    /**
-     * @param FactoryInterface $supplierFactory
-     */
     public function __construct(FactoryInterface $supplierFactory)
     {
         $this->supplierFactory = $supplierFactory;
@@ -72,7 +70,7 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return SupplierInterface
      */
     public function create(array $options = [])
     {

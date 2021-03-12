@@ -47,49 +47,31 @@ class SupplierPricing implements SupplierPricingInterface
         return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSupplier(): ?SupplierInterface
     {
         return $this->supplier;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setSupplier(?SupplierInterface $supplier): void
     {
         $this->supplier = $supplier;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getProductVariant(): ?ProductVariantInterface
     {
         return $this->productVariant;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setProductVariant(?ProductVariantInterface $productVariant): void
     {
         $this->productVariant = $productVariant;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setPrice(?int $price): void
     {
         $this->price = $price;

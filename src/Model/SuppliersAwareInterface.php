@@ -22,20 +22,9 @@ interface SuppliersAwareInterface
      */
     public function getSuppliers(): Collection;
 
-    /**
-     * @param SupplierInterface $supplier
-     *
-     * @return bool
-     */
     public function hasSupplier(SupplierInterface $supplier): bool;
 
-    /**
-     * @param SupplierInterface $supplier
-     */
     public function addSupplier(SupplierInterface $supplier): void;
 
-    /**
-     * @param SupplierInterface $supplier
-     */
     public function removeSupplier(SupplierInterface $supplier): void;
 }

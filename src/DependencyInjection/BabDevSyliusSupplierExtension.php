@@ -20,17 +20,11 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'babdev_sylius_supplier';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = $this->getConfiguration($configs, $container);
