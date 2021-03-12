@@ -17,9 +17,6 @@ use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Product\CreateSimpleProdu
 use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Product\UpdateSimpleProductPage;
 use Behat\Behat\Context\Context;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class ManagingProductsContext implements Context
 {
     /**

@@ -15,28 +15,13 @@ namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\CreatePageInterface as BaseCreatePageInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface CreatePageInterface extends BaseCreatePageInterface
 {
-    /**
-     * @param string $name
-     */
     public function setCode(string $name);
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name);
 
-    /**
-     * @param string $description
-     */
     public function setDescription(string $description);
 
-    /**
-     * @param string $contactEmail
-     */
     public function setContactEmail(string $contactEmail);
 }

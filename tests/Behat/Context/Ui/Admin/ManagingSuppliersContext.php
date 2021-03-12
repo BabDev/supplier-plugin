@@ -20,9 +20,6 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Webmozart\Assert\Assert;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class ManagingSuppliersContext implements Context
 {
     /**
@@ -40,11 +37,6 @@ final class ManagingSuppliersContext implements Context
      */
     private $updatePage;
 
-    /**
-     * @param IndexPageInterface $indexPage
-     * @param CreatePageInterface $createPage
-     * @param UpdatePageInterface $updatePage
-     */
     public function __construct(
         IndexPageInterface $indexPage,
         CreatePageInterface $createPage,

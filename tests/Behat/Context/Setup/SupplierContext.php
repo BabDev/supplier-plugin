@@ -19,9 +19,6 @@ use Doctrine\Persistence\ObjectManager;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class SupplierContext implements Context
 {
     /**
@@ -39,11 +36,6 @@ final class SupplierContext implements Context
      */
     private $supplierManager;
 
-    /**
-     * @param SharedStorageInterface $sharedStorage
-     * @param ExampleFactoryInterface $supplierExampleFactory
-     * @param ObjectManager $supplierManager
-     */
     public function __construct(
         SharedStorageInterface $sharedStorage,
         ExampleFactoryInterface $supplierExampleFactory,

@@ -15,18 +15,9 @@ namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\UpdatePageInterface as BaseUpdatePageInterface;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 interface UpdatePageInterface extends BaseUpdatePageInterface
 {
-    /**
-     * @param string $description
-     */
     public function changeDescriptionTo(string $description);
 
-    /**
-     * @return string
-     */
     public function getDescription(): string;
 }

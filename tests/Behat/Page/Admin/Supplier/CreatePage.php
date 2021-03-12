@@ -15,46 +15,28 @@ namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\CreatePage as BaseCreatePage;
 
-/**
- * @author Michael Babker <michael.babker@gmail.com>
- */
 final class CreatePage extends BaseCreatePage implements CreatePageInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function setCode(string $code)
     {
         $this->getSession()->getPage()->fillField('Code', $code);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setName(string $name)
     {
         $this->getSession()->getPage()->fillField('Name', $name);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setDescription(string $description)
     {
         $this->getSession()->getPage()->fillField('Description', $description);
     }
 
-    /**
-     * @param string $contactEmail
-     */
     public function setContactEmail(string $contactEmail)
     {
         $this->getSession()->getPage()->fillField('Contact email', $contactEmail);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function getDefinedElements(): array
     {
         return array_merge(
