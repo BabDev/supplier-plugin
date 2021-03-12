@@ -16,13 +16,13 @@ namespace BabDev\SyliusSupplierPlugin\Fixture\Factory;
 use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Faker\Factory;
 use Faker\Generator;
-use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
+use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class SupplierExampleFactory implements ExampleFactoryInterface
+final class SupplierExampleFactory extends AbstractExampleFactory
 {
     /**
      * @var FactoryInterface
@@ -44,35 +44,12 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
         $this->supplierFactory = $supplierFactory;
 
         $this->faker = Factory::create();
-        $this->optionsResolver =
-            (new OptionsResolver())
-                ->setDefault('name', function (Options $options): string {
-                    /**
-                     * @phpstan-ignore-next-line
-                     * @psalm-suppress PossiblyInvalidArgument
-                     */
-                    return StringInflector::nameToCode($this->faker->words(3, true));
-                })
-                ->setAllowedTypes('name', 'string')
+        $this->optionsResolver = new OptionsResolver();
 
-                ->setDefault('code', function (Options $options): string {
-                    return StringInflector::nameToCode($options['name']);
-                })
-                ->setAllowedTypes('code', 'string')
-
-                ->setDefault('description', function (Options $options) {
-                    return $this->faker->paragraphs(3, true);
-                })
-                ->setAllowedTypes('description', 'string')
-
-                ->setDefault('contact_email', null)
-        ;
+        $this->configureOptions($this->optionsResolver);
     }
 
-    /**
-     * @return SupplierInterface
-     */
-    public function create(array $options = [])
+    public function create(array $options = []): SupplierInterface
     {
         $options = $this->optionsResolver->resolve($options);
 
@@ -84,5 +61,33 @@ final class SupplierExampleFactory implements ExampleFactoryInterface
         $supplier->setContactEmail($options['contact_email']);
 
         return $supplier;
+    }
+
+    protected function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver
+            ->setDefault('name', function (Options $options): string {
+                /** @var string $words */
+                $words = $this->faker->words(3, true);
+
+                return $words;
+            })
+            ->setAllowedTypes('name', 'string')
+
+            ->setDefault('code', function (Options $options): string {
+                return StringInflector::nameToCode($options['name']);
+            })
+            ->setAllowedTypes('code', 'string')
+
+            ->setDefault('description', function (Options $options): string {
+                /** @var string $paragraphs */
+                $paragraphs = $this->faker->paragraphs(3, true);
+
+                return $paragraphs;
+            })
+            ->setAllowedTypes('description', 'string')
+
+            ->setDefault('contact_email', null)
+        ;
     }
 }
