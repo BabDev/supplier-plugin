@@ -13,6 +13,20 @@ babdev_sylius_supplier_admin_supplier:
               icon: shopping bag
     type: sylius.resource
 
+babdev_sylius_supplier_admin_supplier_bulk_delete:
+    path: /bulk-delete
+    methods: [DELETE]
+    defaults:
+        _controller: babdev_sylius_supplier.controller.supplier:bulkDeleteAction
+        _sylius:
+            section: admin
+            redirect: referer
+            permission: true
+            paginate: false
+            repository:
+                method: findById
+                arguments: [$ids]
+
 babdev_sylius_supplier_admin_supplier_delete:
     path: /suppliers/{id}
     methods: [DELETE]

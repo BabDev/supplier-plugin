@@ -106,6 +106,22 @@ final class ManagingSuppliersContext implements Context
     }
 
     /**
+     * @When I delete them
+     */
+    public function iDeleteThem(): void
+    {
+        $this->indexPage->bulkDelete();
+    }
+
+    /**
+     * @When I check (also) the :supplierName supplier
+     */
+    public function iCheckTheSupplier(string $supplierName): void
+    {
+        $this->indexPage->checkResourceOnPage(['name' => $supplierName]);
+    }
+
+    /**
      * @Then /^I should be notified that (name|description) is required$/
      */
     public function iShouldBeNotifiedThatElementIsRequired($element)
@@ -130,15 +146,12 @@ final class ManagingSuppliersContext implements Context
     }
 
     /**
+     * @Then I should see a single supplier in the list
      * @Then I should see :amount suppliers in the list
      */
-    public function iShouldSeeThatManySuppliersInTheList($amount)
+    public function iShouldSeeSuppliersInTheList(int $amount = 1)
     {
-        Assert::same(
-            (int) $amount,
-            $this->indexPage->countItems(),
-            'Amount of suppliers should be equal %s, but was %2$s.'
-        );
+        Assert::same($this->indexPage->countItems(), $amount);
     }
 
     /**

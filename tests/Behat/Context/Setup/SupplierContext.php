@@ -47,7 +47,7 @@ final class SupplierContext implements Context
     }
 
     /**
-     * @Given the store has supplier :name
+     * @Given the store has (also) supplier :name
      */
     public function theStoreHasSupplier($name)
     {
