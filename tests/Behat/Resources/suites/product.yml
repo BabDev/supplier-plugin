@@ -1,10 +1,11 @@
 default:
     suites:
         ui_product_with_supplier:
-            contexts_services:
+            contexts:
                 - sylius.behat.context.hook.doctrine_orm
 
                 - sylius.behat.context.transform.locale
+                - sylius.behat.context.transform.channel
 
                 - sylius.behat.context.setup.channel
                 - sylius.behat.context.setup.admin_security

@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Collection;
 interface SuppliersAwareInterface
 {
     /**
-     * @return Collection|SupplierInterface[]
+     * @return Collection<array-key, SupplierInterface>
      */
     public function getSuppliers(): Collection;
 

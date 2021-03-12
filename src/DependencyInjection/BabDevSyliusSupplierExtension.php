@@ -31,12 +31,17 @@ final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
     /**
      * {@inheritdoc}
      */
-    public function load(array $config, ContainerBuilder $container): void
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        $config = $this->processConfiguration($this->getConfiguration($config, $container), $config);
+        $configuration = $this->getConfiguration($configs, $container);
+
+        if (null !== $configuration) {
+            $configs = $this->processConfiguration($configuration, $configs);
+        }
+
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $this->registerResources('babdev_sylius_supplier', $config['driver'], $config['resources'], $container);
+        $this->registerResources('babdev_sylius_supplier', $configs['driver'], $configs['resources'], $container);
 
         $loader->load('services.xml');
     }

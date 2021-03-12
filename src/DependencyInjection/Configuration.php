@@ -28,12 +28,13 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 final class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @psalm-suppress ArgumentTypeCoercion
+     * @psalm-suppress PossiblyUndefinedMethod
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('babdev_sylius_supplier');
+        $treeBuilder = new TreeBuilder('babdev_sylius_supplier');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -47,6 +48,10 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
+    /**
+     * @psalm-suppress PossiblyUndefinedMethod
+     * @psalm-suppress PossiblyNullReference
+     */
     private function addResourcesSection(ArrayNodeDefinition $node): void
     {
         $node
@@ -62,7 +67,6 @@ final class Configuration implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->children()
                                         ->scalarNode('model')->defaultValue(Supplier::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(SupplierInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
@@ -79,7 +83,6 @@ final class Configuration implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->children()
                                         ->scalarNode('model')->defaultValue(SupplierPricing::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(SupplierPricingInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()

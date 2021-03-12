@@ -52,7 +52,7 @@ final class SupplierChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => function (Options $options) {
+            'choices' => function (Options $options): array {
                 return $this->supplierRepository->findAll();
             },
             'choice_value' => 'code',

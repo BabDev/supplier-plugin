@@ -20,10 +20,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductTypeExtension extends AbstractTypeExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('supplier', SupplierChoiceType::class, [
@@ -34,11 +31,8 @@ final class ProductTypeExtension extends AbstractTypeExtension
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getExtendedType()
+    public static function getExtendedTypes(): iterable
     {
-        return ProductType::class;
+        return [ProductType::class];
     }
 }

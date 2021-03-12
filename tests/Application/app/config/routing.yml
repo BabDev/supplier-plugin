@@ -1,6 +1,0 @@
-sylius:
-    resource: "../../../../vendor/sylius/sylius/app/config/routing.yml"
-
-babdev_sylius_supplier_admin:
-    resource: "@BabDevSyliusSupplierPlugin/Resources/config/app/admin_routing.yml"
-    prefix: /admin

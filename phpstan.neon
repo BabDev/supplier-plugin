@@ -1,4 +1,7 @@
 parameters:
+    reportUnmatchedIgnoredErrors: false
+    checkMissingIterableValueType: false
+
     excludes_analyse:
         # Makes PHPStan crash
         - 'src/DependencyInjection/Configuration.php'
@@ -8,7 +11,5 @@ parameters:
         - 'tests/Application/src/**.php'
 
     ignoreErrors:
-        - '/Parameter #1 $configuration of method Symfony\Component\DependencyInjection\Extension\Extension::processConfiguration() expects Symfony\Component\Config\Definition\ConfigurationInterface, Symfony\Component\Config\Definition\ConfigurationInterface|null given./'
-        - '/Property BabDev\SupplierPlugin\Model\SupplierPricing::$price (int) does not accept int|null./'
-        - '/Parameter #1 $value of static method Sylius\Component\Core\Formatter\StringInflector::nameToCode() expects string, array|string given./'
-        - '/Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode()/'
+        - '/Method BabDev\\SyliusSupplierPlugin\\BabDevSyliusSupplierPlugin::getContainerExtension\(\) should return Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null but returns bool\|Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null\./'
+        - '/Parameter #1 \$configuration of method Symfony\\Component\\DependencyInjection\\Extension\\Extension::processConfiguration\(\) expects Symfony\\Component\\Config\\Definition\\ConfigurationInterface, Symfony\\Component\\Config\\Definition\\ConfigurationInterface\|null given\./'

@@ -2,7 +2,7 @@ babdev_sylius_supplier_admin_supplier:
     resource: |
         alias: babdev_sylius_supplier.supplier
         section: admin
-        templates: SyliusAdminBundle:Crud
+        templates: "@SyliusAdmin\\Crud"
         except: ['delete']
         redirect: index
         grid: babdev_sylius_supplier_admin_supplier
