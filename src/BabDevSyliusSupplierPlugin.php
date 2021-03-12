@@ -15,10 +15,10 @@ namespace BabDev\SyliusSupplierPlugin;
 
 use BabDev\SyliusSupplierPlugin\DependencyInjection\BabDevSyliusSupplierExtension;
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
+use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
-final class BabDevSyliusSupplierPlugin extends Bundle
+final class BabDevSyliusSupplierPlugin extends AbstractResourceBundle
 {
     use SyliusPluginTrait;
 
@@ -27,12 +27,27 @@ final class BabDevSyliusSupplierPlugin extends Bundle
         return 'babdev_sylius_supplier';
     }
 
-    public function getContainerExtension(): ?ExtensionInterface
+    /**
+     * @psalm-suppress DocblockTypeContradiction
+     * @psalm-suppress InvalidReturnStatement
+     * @psalm-suppress InvalidReturnType
+     */
+    public function getContainerExtension()
     {
         if (null === $this->containerExtension) {
             $this->containerExtension = new BabDevSyliusSupplierExtension();
         }
 
-        return $this->containerExtension ?? null;
+        /**
+         * @phpstan-ignore-next-line
+         */
+        return $this->containerExtension === false ? null : $this->containerExtension;
+    }
+
+    public function getSupportedDrivers(): array
+    {
+        return [
+            SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
+        ];
     }
 }
