@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Functional\DependencyInjection;
+namespace Tests\BabDev\SyliusSupplierPlugin\Functional\DependencyInjection;
 
 use BabDev\SyliusSupplierPlugin\DependencyInjection\BabDevSyliusSupplierExtension;
 use BabDev\SyliusSupplierPlugin\Fixture\Factory\SupplierExampleFactory;

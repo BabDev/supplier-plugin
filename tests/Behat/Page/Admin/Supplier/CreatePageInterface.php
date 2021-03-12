@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier;
+namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Supplier;
 
 use Sylius\Behat\Page\Admin\Crud\CreatePageInterface as BaseCreatePageInterface;
 

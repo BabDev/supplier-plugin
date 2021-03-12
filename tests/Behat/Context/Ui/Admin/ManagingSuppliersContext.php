@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Context\Ui\Admin;
+namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Context\Ui\Admin;
 
 use BabDev\SyliusSupplierPlugin\Model\Supplier;
-use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier\CreatePageInterface;
-use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Supplier\UpdatePageInterface;
+use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Supplier\CreatePageInterface;
+use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Supplier\UpdatePageInterface;
 use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Webmozart\Assert\Assert;

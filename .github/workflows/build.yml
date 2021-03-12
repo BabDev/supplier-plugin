@@ -167,27 +167,27 @@ jobs:
 # TODO: Uncomment after https://github.com/SyliusLabs/CodingStandard/pull/34 gets merged and released
 #            -
 #                name: Check coding standards
-#                run: bin/ecs check src
+#                run: vendor/bin/ecs check src
 
             -
                 name: Run PHPStan
-                run: bin/phpstan analyse -c phpstan.neon -l max src/
+                run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
 
             -
                 name: Run Psalm
-                run: bin/psalm
+                run: vendor/bin/psalm
 
             -
                 name: Run PHPSpec
-                run: bin/phpspec run --ansi -f progress --no-interaction
+                run: vendor/bin/phpspec run --ansi -f progress --no-interaction
 
             -
                 name: Run PHPUnit
-                run: bin/phpunit --colors=always
+                run: vendor/bin/phpunit --colors=always
 
             -
                 name: Run Behat
-                run: bin/behat --colors --strict -vvv --no-interaction || bin/behat --colors --strict -vvv --no-interaction --rerun
+                run: vendor/bin/behat --colors --strict -vvv --no-interaction || vendor/bin/behat --colors --strict -vvv --no-interaction --rerun
 
             -
                 name: Upload Behat logs

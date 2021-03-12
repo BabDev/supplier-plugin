@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Context\Setup;
+namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Context\Setup;
 
 use BabDev\SyliusSupplierPlugin\Model\Supplier;
 use Behat\Behat\Context\Context;

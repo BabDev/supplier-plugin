@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Product;
+namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Product;
 
 use Sylius\Behat\Page\Admin\Product\UpdateSimpleProductPage as BaseUpdatePage;
 

@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace BabDev\SyliusSupplierPlugin\Tests\Behat\Context\Ui\Admin;
+namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Context\Ui\Admin;
 
-use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Product\CreateSimpleProductPage;
-use BabDev\SyliusSupplierPlugin\Tests\Behat\Page\Admin\Product\UpdateSimpleProductPage;
+use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Product\CreateSimpleProductPage;
+use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Product\UpdateSimpleProductPage;
 use Behat\Behat\Context\Context;
 
 final class ManagingProductsContext implements Context

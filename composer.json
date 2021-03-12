@@ -2,18 +2,14 @@
     "name": "babdev/supplier-plugin",
     "type": "sylius-plugin",
     "description": "Supplier processing for Sylius.",
-    "keywords": ["shop", "ecommerce", "supplier"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Michael Babker",
-            "email": "michael.babker@gmail.com",
-            "homepage": "https://michaels.website"
-        }
+    "keywords": [
+        "shop",
+        "ecommerce",
+        "supplier"
     ],
+    "license": "MIT",
     "require": {
         "php": "^7.3",
-
         "sylius/sylius": "~1.8.0 || ~1.9.0"
     },
     "conflict": {
@@ -49,22 +45,27 @@
         "symfony/web-profiler-bundle": "^4.4 || ^5.2",
         "vimeo/psalm": "4.4.1"
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": { "BabDev\\SyliusSupplierPlugin\\": "src/" }
+    "config": {
+        "sort-packages": true
     },
-    "autoload-dev": {
-        "classmap": ["tests/Application/Kernel.php"],
-        "psr-4": {
-            "BabDev\\SyliusSupplierPlugin\\Tests\\App\\": "tests/Application/src/",
-            "BabDev\\SyliusSupplierPlugin\\Tests\\Behat\\": "tests/Behat/",
-            "BabDev\\SyliusSupplierPlugin\\Tests\\Functional\\": "tests/Functional/"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     },
-    "config": {
-        "sort-packages": true,
-        "bin-dir": "bin"
+    "autoload": {
+        "psr-4": {
+            "BabDev\\SyliusSupplierPlugin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BabDev\\SyliusSupplierPlugin\\Tests\\App\\": "tests/Application/src/",
+            "Tests\\BabDev\\SyliusSupplierPlugin\\": "tests/"
+        },
+        "classmap": [
+            "tests/Application/Kernel.php"
+        ]
     },
     "scripts": {
         "post-install-cmd": [
