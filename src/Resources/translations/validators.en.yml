@@ -9,4 +9,3 @@ babdev_sylius_supplier:
         contact_email:
             invalid: This email is invalid.
             max: Email must not be longer than {{ limit }} characters.
-            min: Email must be at least {{ limit }} characters long.
