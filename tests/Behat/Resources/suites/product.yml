@@ -17,4 +17,4 @@ default:
                 - babdev_sylius_supplier.context.ui.admin.managing_products
 
             filters:
-                tags: "@managing_products_with_suppliers"
+                tags: "@managing_products_with_suppliers && @ui"

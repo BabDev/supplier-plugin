@@ -14,4 +14,4 @@ default:
                 - sylius.behat.context.ui.admin.notification
 
             filters:
-                tags: "@managing_suppliers"
+                tags: "@managing_suppliers && @ui"
