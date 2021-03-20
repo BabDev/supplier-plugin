@@ -9,13 +9,16 @@ The [Sylius](https://sylius.com/) supplier plugin adds support for a supplier mo
 1. Install with Composer
 
     ```bash
-    composer require babdev/supplier-plugin
+    composer require babdev/supplier-plugin:^1.0-dev
     ```
 
-2. Without Symfony Flex, manually add the plugin to `config/bundles.php`
+2. Add the plugin to `config/bundles.php` after the SyliusResourceBundle, but before the SyliusGridBundle
 
     ```php
+    Sylius\Bundle\ResourceBundle\SyliusResourceBundle::class => ['all' => true],
+    // other plugins and bundles
     BabDev\SyliusSupplierPlugin\BabDevSyliusSupplierPlugin::class => ['all' => true],
+    Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
     ```
 
 3. Import config 
@@ -64,32 +67,104 @@ The [Sylius](https://sylius.com/) supplier plugin adds support for a supplier mo
         }
         ```
 
-6. Add the Doctrine mapping 
+6. Add the Doctrine mapping in the preferred format.
 
     - [Product](tests/Application/config/doctrine/Product.orm.xml)
+        - Annotations
 
-        ```xml
-        <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
-            <join-column name="supplier_id" referenced-column-name="id" nullable="true" />
-        </many-to-one>
-        ```
+            ```php
+            namespace App\Entity\Product;
+            
+            use BabDev\SyliusSupplierPlugin\Model\ProductTrait;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierAwareInterface;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
+            use Doctrine\ORM\Mapping as ORM;
+            use Sylius\Component\Core\Model\Product as BaseProduct;
+            
+            /**
+             * @ORM\Entity
+             * @ORM\Table(name="sylius_product")
+             */
+            class Product extends BaseProduct implements SupplierAwareInterface
+            {
+                use ProductTrait;
+            
+                /**
+                 * @ORM\ManyToOne(targetEntity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface")
+                 * @ORM\JoinColumn(name="supplier_id")
+                 *
+                 * @var SupplierInterface
+                 */
+                protected $supplier;
+            ```
+
+        - XML
+
+            ```xml
+            <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
+                <join-column name="supplier_id" />
+            </many-to-one>
+            ```
+
+        - YAML
+            ```yaml
+            manyToOne:
+                supplier:
+                    targetEntity: BabDev\SyliusSupplierPlugin\Model\SupplierInterface
+                    joinColumn:
+                        name: supplier_id
+            ```
 
     - [ProductVariant](tests/Application/config/doctrine/ProductVariant.orm.xml)
 
-        ```xml
-          <many-to-one field="supplierPricing" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface" inversed-by="productVariant">
-              <join-column name="supplier_pricing_id" referenced-column-name="id" nullable="true" on-delete="SET NULL" />
-              <cascade>
-                  <cascade-all/>
-              </cascade>
-          </many-to-one>
-        ```
+        - Annotations
 
-6. Add the field to the admin product form, for example in [templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig](tests/Application/templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig)
+            ```php
+            namespace App\Entity\Product;
+            
+            use BabDev\SyliusSupplierPlugin\Model\ProductVariantTrait;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface;
+            use Doctrine\ORM\Mapping as ORM;
+            use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
+            
+            /**
+             * @ORM\Entity
+             * @ORM\Table(name="sylius_product_variant")
+             */
+            class ProductVariant extends BaseProductVariant
+            {
+                use ProductVariantTrait;
+            
+                /**
+                 * @ORM\ManyToOne(targetEntity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface", inversedBy="productVariant", cascade="ALL")
+                 * @ORM\JoinColumn(name="supplier_pricing_id", onDelete="SET NULL")
+                 *
+                 * @var SupplierPricingInterface
+                 */
+                protected $supplierPricing;
+            ```
 
-    ```twig
-    {{ form_row(form.supplier) }}
-    ```
+        - XML
+
+            ```xml
+            <many-to-one field="supplierPricing" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface" inversed-by="productVariant">
+                <join-column name="supplier_pricing_id" on-delete="SET NULL" />
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </many-to-one>
+            ```
+
+        - YAML
+            ```yaml
+            manyToOne:
+                supplierPricing:
+                    targetEntity: BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface
+                    inversedBy: productVariant
+                    joinColumn:
+                        name: supplier_pricing_id
+                        onDelete: SET NULL
+            ```
 
 7. Update database schema via Doctrine migrations
 
@@ -104,6 +179,12 @@ The [Sylius](https://sylius.com/) supplier plugin adds support for a supplier mo
         ```bash
         bin/console doctrine:migrations:migrate
         ```
+
+8. Add the field to the admin product form, for example in [templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig](tests/Application/templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig)
+
+    ```twig
+    {{ form_row(form.supplier) }}
+    ```
 
 ## Development and testing
 
