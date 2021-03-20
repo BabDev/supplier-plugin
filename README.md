@@ -4,29 +4,231 @@
 
 The [Sylius](https://sylius.com/) supplier plugin adds support for a supplier model which can be used to extend products.
 
-## Documentation
+## Installation
 
-For a comprehensive guide on Sylius Plugins development please go to Sylius documentation,
-there you will find the <a href="https://docs.sylius.com/en/latest/plugin-development-guide/index.html">Plugin Development Guide</a>, that is full of examples.
-
-## Quickstart Installation
-
-1. Run `composer create-project sylius/plugin-skeleton ProjectName`.
-
-2. From the plugin skeleton root directory, run the following commands:
+1. Install with Composer
 
     ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && APP_ENV=test bin/console assets:install public)
-    
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:database:create)
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:schema:create)
+    composer require babdev/supplier-plugin:^1.0-dev
     ```
 
-To be able to setup a plugin's database, remember to configure you database credentials in `tests/Application/.env` and `tests/Application/.env.test`.
+2. Add the plugin to `config/bundles.php` after the SyliusResourceBundle, but before the SyliusGridBundle
 
-## Usage
+    ```php
+    Sylius\Bundle\ResourceBundle\SyliusResourceBundle::class => ['all' => true],
+    // other plugins and bundles
+    BabDev\SyliusSupplierPlugin\BabDevSyliusSupplierPlugin::class => ['all' => true],
+    Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
+    ```
+
+3. Import config 
+   
+    (in `config/packages/_sylius.yaml` or `config/packages/babdev_sylius_supplier.yaml)`)
+
+    ```yaml
+    imports:
+        - { resource: "@BabDevSyliusSupplierPlugin/Resources/config/app/config.yml" }
+    ```
+
+4. Import the routing
+   
+    (in `config/routes.yaml` or `config/routes/babdev_sylius_supplier.yaml`)
+
+    ```yaml
+    babdev_sylius_supplier_admin:
+        resource: "@BabDevSyliusSupplierPlugin/Resources/config/app/admin_routing.yml"
+        prefix: /%sylius_admin.path_name%
+    ```
+
+5. Add the corresponding traits
+
+    - [Product](tests/Application/src/Model/Product.php)
+
+        ```php
+        use BabDev\SyliusSupplierPlugin\Model\ProductTrait;
+        use BabDev\SyliusSupplierPlugin\Model\SupplierAwareInterface;
+        use Sylius\Component\Core\Model\Product as BaseProduct;
+        
+        class Product extends BaseProduct implements SupplierAwareInterface
+        {
+            use ProductTrait;
+        }
+        ```
+    
+    - [ProductVariant](tests/Application/src/Model/ProductVariant.php)
+    
+        ```php
+        use BabDev\SyliusSupplierPlugin\Model\ProductVariantTrait;
+        use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
+        
+        class ProductVariant extends BaseProductVariant
+        {
+            use ProductVariantTrait;
+        }
+        ```
+
+6. Add the Doctrine mapping in the preferred format.
+
+    - [Product](tests/Application/config/doctrine/Product.orm.xml)
+        - Annotations
+
+            ```php
+            namespace App\Entity\Product;
+            
+            use BabDev\SyliusSupplierPlugin\Model\ProductTrait;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierAwareInterface;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
+            use Doctrine\ORM\Mapping as ORM;
+            use Sylius\Component\Core\Model\Product as BaseProduct;
+            
+            /**
+             * @ORM\Entity
+             * @ORM\Table(name="sylius_product")
+             */
+            class Product extends BaseProduct implements SupplierAwareInterface
+            {
+                use ProductTrait;
+            
+                /**
+                 * @ORM\ManyToOne(targetEntity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface")
+                 * @ORM\JoinColumn(name="supplier_id")
+                 *
+                 * @var SupplierInterface
+                 */
+                protected $supplier;
+            ```
+
+        - XML
+
+            ```xml
+            <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
+                <join-column name="supplier_id" />
+            </many-to-one>
+            ```
+
+        - YAML
+            ```yaml
+            manyToOne:
+                supplier:
+                    targetEntity: BabDev\SyliusSupplierPlugin\Model\SupplierInterface
+                    joinColumn:
+                        name: supplier_id
+            ```
+
+    - [ProductVariant](tests/Application/config/doctrine/ProductVariant.orm.xml)
+
+        - Annotations
+
+            ```php
+            namespace App\Entity\Product;
+            
+            use BabDev\SyliusSupplierPlugin\Model\ProductVariantTrait;
+            use BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface;
+            use Doctrine\ORM\Mapping as ORM;
+            use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
+            
+            /**
+             * @ORM\Entity
+             * @ORM\Table(name="sylius_product_variant")
+             */
+            class ProductVariant extends BaseProductVariant
+            {
+                use ProductVariantTrait;
+            
+                /**
+                 * @ORM\ManyToOne(targetEntity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface", inversedBy="productVariant", cascade="ALL")
+                 * @ORM\JoinColumn(name="supplier_pricing_id", onDelete="SET NULL")
+                 *
+                 * @var SupplierPricingInterface
+                 */
+                protected $supplierPricing;
+            ```
+
+        - XML
+
+            ```xml
+            <many-to-one field="supplierPricing" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface" inversed-by="productVariant">
+                <join-column name="supplier_pricing_id" on-delete="SET NULL" />
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </many-to-one>
+            ```
+
+        - YAML
+            ```yaml
+            manyToOne:
+                supplierPricing:
+                    targetEntity: BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface
+                    inversedBy: productVariant
+                    joinColumn:
+                        name: supplier_pricing_id
+                        onDelete: SET NULL
+            ```
+
+7. Update database schema via Doctrine migrations
+
+    - Generate the migration
+
+        ```bash
+        bin/console doctrine:migrations:diff
+        ```
+
+   - Check the generated migration, then execute it
+
+        ```bash
+        bin/console doctrine:migrations:migrate
+        ```
+
+8. Add the field to the admin product form, for example in [templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig](tests/Application/templates/bundles/SyliusAdminBundle/Product/Tab/_details.html.twig)
+
+    ```twig
+    {{ form_row(form.supplier) }}
+    ```
+
+## Development and testing
+
+### Setup
+
+1. Clone the repository (or a repository fork)
+
+    ```bash
+    git clone https://github.com/BabDev/supplier-plugin
+    cd supplier-plugin
+    ```
+
+2. Install the dependencies
+
+    ```bash
+    composer install
+    ```
+
+3. Initialize the test app with the following commands:
+
+    ```bash
+    (cd tests/Application && yarn install)
+    (cd tests/Application && yarn build)
+    (cd tests/Application && bin/console APP_ENV=test assets:install public)
+    (cd tests/Application && bin/console APP_ENV=test doctrine:database:create)
+    (cd tests/Application && bin/console APP_ENV=test doctrine:schema:create)
+    ```
+
+4. (Optional) Setup MySQL database
+
+    By default, an SQLite database will be used, but you can setup a MySQL database,
+    and configure its credentials in `tests/Application/.env.test.local`.
+    
+    Here's an example for running MySQL database in a Docker container:
+    
+    ```bash
+    docker run -p 3307:3306 --env MYSQL_ROOT_PASSWORD=root --env MYSQL_DATABASE=sylius_test --env MYSQL_USER=sylius --env MYSQL_PASSWORD=sylius --name sylius-supplier-test -v sylius-supplier-test-data:/var/lib/mysql mysql:5.7 
+    ```
+    
+    and the `tests/Application/.env.test.local`
+    
+    ```
+    DATABASE_URL=mysql://sylius:sylius@127.0.0.1:3307/sylius_test?serverVersion=5.7
+    ```
 
 ### Running plugin tests
 
@@ -97,14 +299,14 @@ To be able to setup a plugin's database, remember to configure you database cred
 
     ```bash
     (cd tests/Application && APP_ENV=test bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=test bin/console server:run -d public)
+    (cd tests/Application && APP_ENV=test symfony serve)
     ```
 
 - Using `dev` environment:
 
     ```bash
     (cd tests/Application && APP_ENV=dev bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=dev bin/console server:run -d public)
+    (cd tests/Application && APP_ENV=dev symfony serve)
     ```
 
 ## Security

@@ -8,7 +8,7 @@
     <mapped-superclass name="BabDev\SyliusSupplierPlugin\Tests\App\Model\Product" table="sylius_product">
 
         <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
-            <join-column name="supplier_id" referenced-column-name="id" nullable="true" />
+            <join-column name="supplier_id" />
         </many-to-one>
 
     </mapped-superclass>
