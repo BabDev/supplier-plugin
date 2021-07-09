@@ -29,8 +29,7 @@ jobs:
 
                 exclude:
                     -
-                        php: "8.0"
-                        symfony: "^4.4"
+                        symfony: "^5.2"
                         sylius: "~1.8.0"
                     -
                         php: "8.0"
