@@ -24,8 +24,11 @@ class Supplier implements SupplierInterface
     protected $id;
 
     protected ?string $code = null;
+
     protected ?string $name = null;
+
     protected ?string $description = null;
+
     protected ?string $contactEmail = null;
 
     public function __construct()

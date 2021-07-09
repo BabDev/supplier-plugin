@@ -25,7 +25,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class SupplierExampleFactory extends AbstractExampleFactory
 {
     private FactoryInterface $supplierFactory;
+
     private Generator $faker;
+
     private OptionsResolver $optionsResolver;
 
     public function __construct(FactoryInterface $supplierFactory)

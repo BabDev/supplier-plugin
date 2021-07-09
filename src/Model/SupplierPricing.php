@@ -21,7 +21,9 @@ class SupplierPricing implements SupplierPricingInterface
     protected $id;
 
     protected ?SupplierInterface $supplier = null;
+
     protected ?ProductVariantInterface $productVariant = null;
+
     protected ?int $price = null;
 
     /**
