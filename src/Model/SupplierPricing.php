@@ -17,25 +17,12 @@ use Sylius\Component\Product\Model\ProductVariantInterface;
 
 class SupplierPricing implements SupplierPricingInterface
 {
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     protected $id;
 
-    /**
-     * @var SupplierInterface|null
-     */
-    protected $supplier;
-
-    /**
-     * @var ProductVariantInterface|null
-     */
-    protected $productVariant;
-
-    /**
-     * @var int|null
-     */
-    protected $price;
+    protected ?SupplierInterface $supplier = null;
+    protected ?ProductVariantInterface $productVariant = null;
+    protected ?int $price = null;
 
     /**
      * @phpstan-ignore-next-line

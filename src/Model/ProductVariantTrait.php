@@ -15,10 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\Model;
 
 trait ProductVariantTrait
 {
-    /**
-     * @var SupplierPricingInterface
-     */
-    protected $supplierPricing;
+    protected ?SupplierPricingInterface $supplierPricing = null;
 
     public function getSupplierPricing(): ?SupplierPricingInterface
     {

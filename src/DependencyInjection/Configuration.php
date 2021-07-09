@@ -15,9 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\DependencyInjection;
 
 use BabDev\SyliusSupplierPlugin\Form\Type\SupplierType;
 use BabDev\SyliusSupplierPlugin\Model\Supplier;
-use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use BabDev\SyliusSupplierPlugin\Model\SupplierPricing;
-use BabDev\SyliusSupplierPlugin\Model\SupplierPricingInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;

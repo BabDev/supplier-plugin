@@ -23,10 +23,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class SupplierChoiceType extends AbstractType
 {
-    /**
-     * @var RepositoryInterface
-     */
-    private $supplierRepository;
+    private RepositoryInterface $supplierRepository;
 
     public function __construct(RepositoryInterface $supplierRepository)
     {
@@ -43,9 +40,7 @@ final class SupplierChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => function (Options $options): array {
-                return $this->supplierRepository->findAll();
-            },
+            'choices' => fn (Options $options): array => $this->supplierRepository->findAll(),
             'choice_value' => 'code',
             'choice_label' => 'name',
             'choice_translation_domain' => false,

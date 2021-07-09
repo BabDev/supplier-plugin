@@ -20,30 +20,13 @@ class Supplier implements SupplierInterface
 {
     use TimestampableTrait, ToggleableTrait;
 
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     protected $id;
 
-    /**
-     * @var string|null
-     */
-    protected $code;
-
-    /**
-     * @var string|null
-     */
-    protected $name;
-
-    /**
-     * @var string|null
-     */
-    protected $description;
-
-    /**
-     * @var string|null
-     */
-    protected $contactEmail;
+    protected ?string $code = null;
+    protected ?string $name = null;
+    protected ?string $description = null;
+    protected ?string $contactEmail = null;
 
     public function __construct()
     {

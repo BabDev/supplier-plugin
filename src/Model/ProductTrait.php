@@ -15,10 +15,7 @@ namespace BabDev\SyliusSupplierPlugin\Model;
 
 trait ProductTrait
 {
-    /**
-     * @var SupplierInterface
-     */
-    protected $supplier;
+    protected ?SupplierInterface $supplier = null;
 
     public function getSupplier(): ?SupplierInterface
     {

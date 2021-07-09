@@ -27,16 +27,12 @@ final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
 
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = $this->getConfiguration($configs, $container);
+        /** @psalm-suppress PossiblyNullArgument */
+        $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
 
-        if (null !== $configuration) {
-            $configs = $this->processConfiguration($configuration, $configs);
-        }
+        $this->registerResources('babdev_sylius_supplier', $config['driver'], $config['resources'], $container);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-
-        $this->registerResources('babdev_sylius_supplier', $configs['driver'], $configs['resources'], $container);
-
         $loader->load('services.xml');
     }
 }

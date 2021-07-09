@@ -21,16 +21,19 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.4, 7.3]
-                symfony: [^4.4, ^5.2]
-                sylius: [~1.8.0, ~1.9.0]
-                node: [10.x]
-                mysql: [5.7]
+                php: ["8.0", "7.4"]
+                symfony: ["^4.4", "^5.2"]
+                sylius: ["~1.8.0", "~1.9.0", "~1.10.0", "~1.11.0@dev"]
+                node: ["10.x"]
+                mysql: ["8.0"]
 
                 exclude:
                     -
-                        sylius: ~1.8.0
-                        symfony: ^5.2
+                        php: "8.0"
+                        sylius: "~1.8.0"
+                    -
+                        php: "8.0"
+                        sylius: "~1.9.0"
 
         env:
             APP_ENV: test
@@ -108,12 +111,6 @@ jobs:
                 if: matrix.sylius != ''
                 run: composer require "sylius/sylius:${{ matrix.sylius }}" --no-update --no-scripts --no-interaction
 
-# TODO: remove the fix after https://github.com/Sylius/Sylius/pull/12427 is merged and released, see https://github.com/Sylius/PluginSkeleton/pull/255
-            -
-                name: Fix FOSOAuthServerBundle on Sylius 1.9
-                if: matrix.sylius == '~1.9.0'
-                run: composer require "friendsofsymfony/oauth-server-bundle:>2.0.0-alpha.0 ^2.0@dev" --dev --no-update --no-scripts --no-interaction
-
             -
                 name: Install PHP dependencies
                 run: composer install --no-interaction
@@ -164,10 +161,9 @@ jobs:
                 name: Validate database schema
                 run: (cd tests/Application && bin/console doctrine:schema:validate)
 
-# TODO: Uncomment after https://github.com/SyliusLabs/CodingStandard/pull/34 gets merged and released
-#            -
-#                name: Check coding standards
-#                run: vendor/bin/ecs check src
+            -
+                name: Check coding standards
+                run: vendor/bin/ecs check src
 
             -
                 name: Run PHPStan

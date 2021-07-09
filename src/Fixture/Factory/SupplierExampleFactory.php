@@ -24,20 +24,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class SupplierExampleFactory extends AbstractExampleFactory
 {
-    /**
-     * @var FactoryInterface
-     */
-    private $supplierFactory;
-
-    /**
-     * @var Generator
-     */
-    private $faker;
-
-    /**
-     * @var OptionsResolver
-     */
-    private $optionsResolver;
+    private FactoryInterface $supplierFactory;
+    private Generator $faker;
+    private OptionsResolver $optionsResolver;
 
     public function __construct(FactoryInterface $supplierFactory)
     {
@@ -74,9 +63,7 @@ final class SupplierExampleFactory extends AbstractExampleFactory
             })
             ->setAllowedTypes('name', 'string')
 
-            ->setDefault('code', function (Options $options): string {
-                return StringInflector::nameToCode($options['name']);
-            })
+            ->setDefault('code', static fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setAllowedTypes('code', 'string')
 
             ->setDefault('description', function (Options $options): string {
