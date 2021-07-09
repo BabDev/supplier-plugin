@@ -23,11 +23,11 @@
         </id>
         <field name="price" column="price" type="integer"/>
 
-        <one-to-many field="productVariant" target-entity="Sylius\Component\Product\Model\ProductVariantInterface" mapped-by="supplierPricing" orphan-removal="true">
+        <one-to-one field="productVariant" target-entity="Sylius\Component\Product\Model\ProductVariantInterface" mapped-by="supplierPricing">
             <cascade>
                 <cascade-all/>
             </cascade>
-        </one-to-many>
+        </one-to-one>
 
         <many-to-one field="supplier" target-entity="BabDev\SyliusSupplierPlugin\Model\SupplierInterface">
             <join-column name="supplier_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
