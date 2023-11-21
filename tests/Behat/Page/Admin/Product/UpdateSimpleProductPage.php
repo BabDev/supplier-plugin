@@ -17,6 +17,11 @@ use Sylius\Behat\Page\Admin\Product\UpdateSimpleProductPage as BaseUpdatePage;
 
 final class UpdateSimpleProductPage extends BaseUpdatePage
 {
+    public function selectSupplier(string $supplier): void
+    {
+        $this->getElement('supplier')->selectOption($supplier);
+    }
+
     protected function getDefinedElements(): array
     {
         return array_merge(

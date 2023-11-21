@@ -17,22 +17,22 @@ use Sylius\Behat\Page\Admin\Crud\CreatePage as BaseCreatePage;
 
 final class CreatePage extends BaseCreatePage implements CreatePageInterface
 {
-    public function setCode(string $code)
+    public function setCode(string $code): void
     {
         $this->getSession()->getPage()->fillField('Code', $code);
     }
 
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->getSession()->getPage()->fillField('Name', $name);
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->getSession()->getPage()->fillField('Description', $description);
     }
 
-    public function setContactEmail(string $contactEmail)
+    public function setContactEmail(string $contactEmail): void
     {
         $this->getSession()->getPage()->fillField('Contact email', $contactEmail);
     }

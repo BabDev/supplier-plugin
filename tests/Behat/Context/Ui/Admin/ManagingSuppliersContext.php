@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Context\Ui\Admin;
 
-use BabDev\SyliusSupplierPlugin\Model\Supplier;
+use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Supplier\CreatePageInterface;
 use Tests\BabDev\SyliusSupplierPlugin\Behat\Page\Admin\Supplier\UpdatePageInterface;
 use Behat\Behat\Context\Context;
@@ -22,36 +22,18 @@ use Webmozart\Assert\Assert;
 
 final class ManagingSuppliersContext implements Context
 {
-    /**
-     * @var IndexPageInterface
-     */
-    private $indexPage;
-
-    /**
-     * @var CreatePageInterface
-     */
-    private $createPage;
-
-    /**
-     * @var UpdatePageInterface
-     */
-    private $updatePage;
-
     public function __construct(
-        IndexPageInterface $indexPage,
-        CreatePageInterface $createPage,
-        UpdatePageInterface $updatePage
+        private IndexPageInterface $indexPage,
+        private CreatePageInterface $createPage,
+        private UpdatePageInterface $updatePage,
     ) {
-        $this->indexPage = $indexPage;
-        $this->createPage = $createPage;
-        $this->updatePage = $updatePage;
     }
 
     /**
      * @Given I want to create a new supplier
      * @Given I want to add a new supplier
      */
-    public function iWantToCreateNewSupplier()
+    public function iWantToCreateNewSupplier(): void
     {
         $this->createPage->open();
     }
@@ -59,7 +41,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I want to browse suppliers of the store
      */
-    public function iWantToBrowseSuppliersOfTheStore()
+    public function iWantToBrowseSuppliersOfTheStore(): void
     {
         $this->indexPage->open();
     }
@@ -67,7 +49,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I specify its code as :code
      */
-    public function iSpecifyItsCodeAs($code)
+    public function iSpecifyItsCodeAs(string $code): void
     {
         $this->createPage->setCode($code);
     }
@@ -75,7 +57,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I set its name to :name
      */
-    public function iSetItsNameTo($name)
+    public function iSetItsNameTo(string $name): void
     {
         $this->createPage->setName($name);
     }
@@ -83,7 +65,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I set its description to :description
      */
-    public function iSetItsDescriptionTo($description)
+    public function iSetItsDescriptionTo(string $description): void
     {
         $this->createPage->setDescription($description);
     }
@@ -91,7 +73,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I set its contact email to :contactEmail
      */
-    public function iSetItsContactEmailAs($contactEmail)
+    public function iSetItsContactEmailAs(string $contactEmail): void
     {
         $this->createPage->setContactEmail($contactEmail);
     }
@@ -100,7 +82,7 @@ final class ManagingSuppliersContext implements Context
      * @When I add it
      * @When I try to add it
      */
-    public function iAddIt()
+    public function iAddIt(): void
     {
         $this->createPage->create();
     }
@@ -124,7 +106,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @Then /^I should be notified that (name|description) is required$/
      */
-    public function iShouldBeNotifiedThatElementIsRequired($element)
+    public function iShouldBeNotifiedThatElementIsRequired(string $element): void
     {
         Assert::same(
             $this->createPage->getValidationMessage($element),
@@ -136,7 +118,7 @@ final class ManagingSuppliersContext implements Context
      * @Then the supplier :name should appear in the store
      * @Then I should see the supplier :name in the list
      */
-    public function theSupplierShouldAppearInTheStore($name)
+    public function theSupplierShouldAppearInTheStore(string $name): void
     {
         if (!$this->indexPage->isOpen()) {
             $this->indexPage->open();
@@ -149,7 +131,7 @@ final class ManagingSuppliersContext implements Context
      * @Then I should see a single supplier in the list
      * @Then I should see :amount suppliers in the list
      */
-    public function iShouldSeeSuppliersInTheList(int $amount = 1)
+    public function iShouldSeeSuppliersInTheList(int $amount = 1): void
     {
         Assert::same($this->indexPage->countItems(), $amount);
     }
@@ -157,7 +139,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @Then the supplier :name should not be added
      */
-    public function theSupplierShouldNotBeAdded($name)
+    public function theSupplierShouldNotBeAdded(string $name): void
     {
         if (!$this->indexPage->isOpen()) {
             $this->indexPage->open();
@@ -169,7 +151,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @Given /^I want to edit (this supplier)$/
      */
-    public function iWantToEditThisSupplier(Supplier $supplier)
+    public function iWantToEditThisSupplier(SupplierInterface $supplier): void
     {
         $this->updatePage->open(['id' => $supplier->getId()]);
     }
@@ -177,7 +159,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I change its description to :description
      */
-    public function iChangeItsDescriptionTo($description)
+    public function iChangeItsDescriptionTo(string $description): void
     {
         $this->updatePage->changeDescriptionTo($description);
     }
@@ -186,7 +168,7 @@ final class ManagingSuppliersContext implements Context
      * @When I save my changes
      * @When I try to save my changes
      */
-    public function iSaveMyChanges()
+    public function iSaveMyChanges(): void
     {
         $this->updatePage->saveChanges();
     }
@@ -194,7 +176,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @When I delete supplier :name
      */
-    public function iDeleteSupplier($name)
+    public function iDeleteSupplier(string $name): void
     {
         $this->indexPage->open();
         $this->indexPage->deleteResourceOnPage(['name' => $name]);
@@ -203,7 +185,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @Then /^(this supplier) should have description "([^"]+)"$/
      */
-    public function thisStaticContentShouldHaveBody(Supplier $supplier, $description)
+    public function thisStaticContentShouldHaveBody(SupplierInterface $supplier, string $description): void
     {
         $this->updatePage->open(['id' => $supplier->getId()]);
         Assert::same($this->updatePage->getDescription(), $description);
@@ -212,7 +194,7 @@ final class ManagingSuppliersContext implements Context
     /**
      * @Then the supplier :name should no longer exist in the store
      */
-    public function theSupplierShouldNoLongerExistInTheStore($name)
+    public function theSupplierShouldNoLongerExistInTheStore(string $name): void
     {
         Assert::false($this->indexPage->isSingleResourceOnPage(['name' => $name]));
     }

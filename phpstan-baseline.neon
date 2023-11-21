@@ -1,0 +1,21 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Anonymous function should return string but returns array\\|string\\.$#"
+			count: 2
+			path: src/Fixture/Factory/SupplierExampleFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method Sylius\\\\Component\\\\Core\\\\Formatter\\\\StringInflector\\:\\:nameToCode\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Fixture/Factory/SupplierExampleFactory.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
+			count: 1
+			path: src/Form/Type/SupplierChoiceType.php
+
+		-
+			message: "#^Method Tests\\\\BabDev\\\\SyliusSupplierPlugin\\\\Behat\\\\Page\\\\Admin\\\\Supplier\\\\UpdatePage\\:\\:getDescription\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			count: 1
+			path: tests/Behat/Page/Admin/Supplier/UpdatePage.php

@@ -24,16 +24,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class SupplierExampleFactory extends AbstractExampleFactory
 {
-    private FactoryInterface $supplierFactory;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
-    public function __construct(FactoryInterface $supplierFactory)
-    {
-        $this->supplierFactory = $supplierFactory;
-
+    /**
+     * @param FactoryInterface<SupplierInterface> $supplierFactory
+     */
+    public function __construct(
+        private FactoryInterface $supplierFactory
+    ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -44,7 +44,6 @@ final class SupplierExampleFactory extends AbstractExampleFactory
     {
         $options = $this->optionsResolver->resolve($options);
 
-        /** @var SupplierInterface $supplier */
         $supplier = $this->supplierFactory->createNew();
         $supplier->setName($options['name']);
         $supplier->setCode($options['code']);
@@ -57,23 +56,13 @@ final class SupplierExampleFactory extends AbstractExampleFactory
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (Options $options): string {
-                /** @var string $words */
-                $words = $this->faker->words(3, true);
-
-                return $words;
-            })
+            ->setDefault('name', fn (Options $options): string  => $this->faker->words(3, true))
             ->setAllowedTypes('name', 'string')
 
             ->setDefault('code', static fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setAllowedTypes('code', 'string')
 
-            ->setDefault('description', function (Options $options): string {
-                /** @var string $paragraphs */
-                $paragraphs = $this->faker->paragraphs(3, true);
-
-                return $paragraphs;
-            })
+            ->setDefault('description', fn (Options $options): string => $this->faker->paragraphs(3, true))
             ->setAllowedTypes('description', 'string')
 
             ->setDefault('contact_email', null)

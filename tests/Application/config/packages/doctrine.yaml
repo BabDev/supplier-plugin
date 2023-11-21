@@ -14,7 +14,7 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
     orm:
         mappings:
-            BabDevSyliusSupplierPlugin:
+            BabDevSyliusSupplierPluginTests:
                 type: xml
                 dir: '%kernel.project_dir%/config/doctrine'
                 prefix: BabDev\SyliusSupplierPlugin\Tests\App\Model

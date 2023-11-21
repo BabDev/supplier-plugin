@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\BabDev\SyliusSupplierPlugin\Behat\Context\Setup;
 
-use BabDev\SyliusSupplierPlugin\Model\Supplier;
+use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Behat\Behat\Context\Context;
 use Doctrine\Persistence\ObjectManager;
 use Sylius\Behat\Service\SharedStorageInterface;
@@ -21,35 +21,17 @@ use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 
 final class SupplierContext implements Context
 {
-    /**
-     * @var SharedStorageInterface
-     */
-    private $sharedStorage;
-
-    /**
-     * @var ExampleFactoryInterface
-     */
-    private $supplierExampleFactory;
-
-    /**
-     * @var ObjectManager
-     */
-    private $supplierManager;
-
     public function __construct(
-        SharedStorageInterface $sharedStorage,
-        ExampleFactoryInterface $supplierExampleFactory,
-        ObjectManager $supplierManager
+        private SharedStorageInterface $sharedStorage,
+        private ExampleFactoryInterface $supplierExampleFactory,
+        private ObjectManager $supplierManager
     ) {
-        $this->sharedStorage = $sharedStorage;
-        $this->supplierExampleFactory = $supplierExampleFactory;
-        $this->supplierManager = $supplierManager;
     }
 
     /**
      * @Given the store has (also) supplier :name
      */
-    public function theStoreHasSupplier($name)
+    public function theStoreHasSupplier(string $name): void
     {
         $supplier = $this->supplierExampleFactory->create(['name' => $name]);
 
@@ -62,7 +44,7 @@ final class SupplierContext implements Context
     /**
      * @Given the store has suppliers :firstName and :secondName
      */
-    public function theStoreHasSuppliers(...$suppliersNames)
+    public function theStoreHasSuppliers(string ...$suppliersNames): void
     {
         foreach ($suppliersNames as $suppliersName) {
             $this->theStoreHasSupplier($suppliersName);
@@ -72,7 +54,7 @@ final class SupplierContext implements Context
     /**
      * @Given the store has supplier :name with description :description
      */
-    public function theStoreHasStaticContentWithBody($name, $description)
+    public function theStoreHasSupplierWithDescription(string $name, string $description): void
     {
         $supplier = $this->supplierExampleFactory->create(['name' => $name, 'description' => $description]);
 
@@ -85,7 +67,7 @@ final class SupplierContext implements Context
     /**
      * @Given /^(it) is not enabled yet$/
      */
-    public function itIsNotEnabledYet(Supplier $supplier)
+    public function itIsNotEnabledYet(SupplierInterface $supplier): void
     {
         $supplier->disable();
 

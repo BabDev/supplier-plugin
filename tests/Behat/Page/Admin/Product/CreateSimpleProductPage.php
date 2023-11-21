@@ -17,7 +17,7 @@ use Sylius\Behat\Page\Admin\Product\CreateSimpleProductPage as BaseCreatePage;
 
 final class CreateSimpleProductPage extends BaseCreatePage
 {
-    public function selectSupplier($supplier)
+    public function selectSupplier(string $supplier): void
     {
         $this->getElement('supplier')->selectOption($supplier);
     }

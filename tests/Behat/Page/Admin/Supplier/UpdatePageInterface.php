@@ -17,7 +17,7 @@ use Sylius\Behat\Page\Admin\Crud\UpdatePageInterface as BaseUpdatePageInterface;
 
 interface UpdatePageInterface extends BaseUpdatePageInterface
 {
-    public function changeDescriptionTo(string $description);
+    public function changeDescriptionTo(string $description): void;
 
     public function getDescription(): string;
 }

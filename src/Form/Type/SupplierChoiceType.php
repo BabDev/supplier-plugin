@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace BabDev\SyliusSupplierPlugin\Form\Type;
 
+use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
@@ -23,12 +24,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class SupplierChoiceType extends AbstractType
 {
-    private RepositoryInterface $supplierRepository;
-
-    public function __construct(RepositoryInterface $supplierRepository)
-    {
-        $this->supplierRepository = $supplierRepository;
-    }
+    /**
+     * @param RepositoryInterface<SupplierInterface> $supplierRepository
+     */
+    public function __construct(
+        private RepositoryInterface $supplierRepository
+    ) {}
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

@@ -19,27 +19,25 @@ use Behat\Behat\Context\Context;
 
 final class ManagingProductsContext implements Context
 {
-    /**
-     * @var CreateSimpleProductPage
-     */
-    private $createSimpleProductPage;
-
-    /**
-     * @var UpdateSimpleProductPage
-     */
-    private $updateSimpleProductPage;
-
-    public function __construct(CreateSimpleProductPage $createSimpleProductPage, UpdateSimpleProductPage $updateSimpleProductPage)
-    {
-        $this->createSimpleProductPage = $createSimpleProductPage;
-        $this->updateSimpleProductPage = $updateSimpleProductPage;
+    public function __construct(
+        private CreateSimpleProductPage $createSimpleProductPage,
+        private UpdateSimpleProductPage $updateSimpleProductPage,
+    ) {
     }
 
     /**
      * @When I set its supplier as :supplierName
      */
-    public function iSetItsSupplierAs($supplierName)
+    public function iSetItsSupplierAs(string $supplierName): void
     {
         $this->createSimpleProductPage->selectSupplier($supplierName);
+    }
+
+    /**
+     * @When I change its supplier to :supplierName
+     */
+    public function iChangeItsSupplierTo(string $supplierName): void
+    {
+        $this->updateSimpleProductPage->selectSupplier($supplierName);
     }
 }

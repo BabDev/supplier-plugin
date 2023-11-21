@@ -21,17 +21,17 @@ use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
 
 final class SupplierFixtureSpec extends ObjectBehavior
 {
-    function let(ObjectManager $supplierManager, ExampleFactoryInterface $supplierFactory): void
+    public function let(ObjectManager $supplierManager, ExampleFactoryInterface $supplierFactory): void
     {
         $this->beConstructedWith($supplierManager, $supplierFactory);
     }
 
-    function it_is_a_fixture(): void
+    public function it_is_a_fixture(): void
     {
         $this->shouldImplement(FixtureInterface::class);
     }
 
-    function it_creates_and_persists_a_supplier(
+    public function it_creates_and_persists_a_supplier(
         ObjectManager $supplierManager,
         ExampleFactoryInterface $supplierFactory,
         SupplierInterface $supplier

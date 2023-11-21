@@ -16,7 +16,7 @@ namespace BabDev\SyliusSupplierPlugin\DependencyInjection;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
 {
@@ -32,7 +32,7 @@ final class BabDevSyliusSupplierExtension extends AbstractResourceExtension
 
         $this->registerResources('babdev_sylius_supplier', $config['driver'], $config['resources'], $container);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.xml');
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.php');
     }
 }

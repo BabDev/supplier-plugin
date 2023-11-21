@@ -13,17 +13,13 @@ declare(strict_types=1);
 
 namespace spec\BabDev\SyliusSupplierPlugin\Menu;
 
-use BabDev\SyliusSupplierPlugin\Model\SupplierInterface;
-use Doctrine\Persistence\ObjectManager;
 use Knp\Menu\ItemInterface;
 use PhpSpec\ObjectBehavior;
-use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
-use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
 final class SyliusMenuBuilderSpec extends ObjectBehavior
 {
-    function it_adds_a_menu_item_to_the_configuration_menu(
+    public function it_adds_a_menu_item_to_the_configuration_menu(
         MenuBuilderEvent $event,
         ItemInterface $adminMenu,
         ItemInterface $configurationMenu,

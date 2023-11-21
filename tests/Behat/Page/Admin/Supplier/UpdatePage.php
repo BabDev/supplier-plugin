@@ -17,7 +17,7 @@ use Sylius\Behat\Page\Admin\Crud\UpdatePage as BaseUpdatePage;
 
 final class UpdatePage extends BaseUpdatePage implements UpdatePageInterface
 {
-    public function changeDescriptionTo(string $description)
+    public function changeDescriptionTo(string $description): void
     {
         $this->getElement('description')->setValue($description);
     }

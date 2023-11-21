@@ -1,15 +1,20 @@
+includes:
+  - phpstan-baseline.neon
+
 parameters:
+    level: max
     reportUnmatchedIgnoredErrors: false
     checkMissingIterableValueType: false
-
-    excludes_analyse:
+    paths:
+        - src
+        - tests/Behat
+    excludePaths:
         # Makes PHPStan crash
         - 'src/DependencyInjection/Configuration.php'
 
         # Test dependencies
         - 'tests/Application/app/**.php'
         - 'tests/Application/src/**.php'
-
     ignoreErrors:
         - '/Method BabDev\\SyliusSupplierPlugin\\BabDevSyliusSupplierPlugin::getContainerExtension\(\) should return Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null but returns bool\|Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null\./'
         - '/Parameter #1 \$configuration of method Symfony\\Component\\DependencyInjection\\Extension\\Extension::processConfiguration\(\) expects Symfony\\Component\\Config\\Definition\\ConfigurationInterface, Symfony\\Component\\Config\\Definition\\ConfigurationInterface\|null given\./'

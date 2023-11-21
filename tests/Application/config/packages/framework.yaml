@@ -3,4 +3,13 @@ framework:
     form: true
     csrf_protection: true
     session:
-        handler_id: ~
+        handler_id: null
+        storage_factory_id: session.storage.factory.native
+    serializer:
+        mapping:
+            paths: [ '%kernel.project_dir%/config/serialization' ]
+
+when@test:
+    framework:
+        session:
+            storage_factory_id: session.storage.factory.mock_file
